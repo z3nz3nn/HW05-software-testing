@@ -1,0 +1,39 @@
+{
+  "source": "23127373_Load_20260814.csv",
+  "samples": 301,
+  "start_timestamp": "2026-08-14T01:02:50.8217326+07:00",
+  "end_timestamp": "2026-08-14T01:07:54.6403171+07:00",
+  "duration_seconds": 303.819,
+  "node_cpu_percent": {
+    "mean": 0.65,
+    "p95": 1.06,
+    "max": 1.342
+  },
+  "working_set_mb": {
+    "start": 65.93,
+    "end": 126.789,
+    "delta": 60.859,
+    "p95": 126.637,
+    "max": 127.133,
+    "trailing_slope_mb_per_minute": 6.818
+  },
+  "private_memory_mb": {
+    "start": 65.656,
+    "end": 137.184,
+    "delta": 71.528,
+    "p95": 137.48,
+    "max": 138.648,
+    "trailing_slope_mb_per_minute": 5.156
+  },
+  "trailing_slope_window_seconds": 202.546,
+  "handles": {
+    "start": 231,
+    "end": 230,
+    "max": 246
+  },
+  "threads": {
+    "start": 16,
+    "end": 15,
+    "max": 16
+  }
+}

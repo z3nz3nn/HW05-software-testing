@@ -6,7 +6,10 @@ param(
 
     [string]$JMeterProperty = '',
 
-    [switch]$Smoke
+    [switch]$Smoke,
+
+    [ValidatePattern('^[A-Za-z0-9-]*$')]
+    [string]$ArtifactSuffix = ''
 )
 
 $ErrorActionPreference = 'Stop'
@@ -28,13 +31,19 @@ $logDirectory = Join-Path $repoRoot 'evidence\runtime-logs'
 New-Item -ItemType Directory -Force -Path $resultDirectory, $htmlRoot, $resourceDirectory, $logDirectory | Out-Null
 
 $scenarioKey = $Scenario.ToLowerInvariant()
-$jtlPath = Join-Path $resultDirectory "${studentId}_${Scenario}_${runDate}.jtl"
-$listenerPath = Join-Path $resultDirectory "listeners\${scenarioKey}-listener.jtl"
-$htmlPath = Join-Path $htmlRoot "${studentId}_${Scenario}_${runDate}"
-$resourcePath = Join-Path $resourceDirectory "${studentId}_${Scenario}_${runDate}.csv"
-$backendOut = Join-Path $logDirectory "${scenarioKey}-backend.out.log"
-$backendErr = Join-Path $logDirectory "${scenarioKey}-backend.err.log"
-$jmeterOut = Join-Path $logDirectory "${scenarioKey}-jmeter-console.log"
+$artifactStem = "${studentId}_${Scenario}_${runDate}"
+if ($ArtifactSuffix) { $artifactStem = "${artifactStem}_${ArtifactSuffix}" }
+$listenerStem = if ($ArtifactSuffix) { "${scenarioKey}-listener-${ArtifactSuffix}" } else { "${scenarioKey}-listener" }
+$jtlPath = Join-Path $resultDirectory "${artifactStem}.jtl"
+$listenerPath = Join-Path $resultDirectory "listeners\${listenerStem}.jtl"
+$htmlPath = Join-Path $htmlRoot $artifactStem
+$resourcePath = Join-Path $resourceDirectory "${artifactStem}.csv"
+$logStem = if ($ArtifactSuffix) { "${scenarioKey}-${ArtifactSuffix}" } else { $scenarioKey }
+$backendOut = Join-Path $logDirectory "${logStem}-backend.out.log"
+$backendErr = Join-Path $logDirectory "${logStem}-backend.err.log"
+$jmeterOut = Join-Path $logDirectory "${logStem}-jmeter-console.log"
+$monitorOut = Join-Path $logDirectory "${logStem}-monitor.out.log"
+$monitorErr = Join-Path $logDirectory "${logStem}-monitor.err.log"
 $monitorStop = Join-Path $env:TEMP "hw05-${scenarioKey}-$PID.stop"
 
 if (Test-Path -LiteralPath $jtlPath) { throw "Result already exists: $jtlPath" }
@@ -70,14 +79,29 @@ try {
     $login = Invoke-RestMethod -Uri 'http://localhost:3000/api/login' -Method Post -ContentType 'application/json' -Body $loginBody
     if (-not $login.token) { throw 'Admin login did not return a JWT.' }
 
-    $monitorProcess = Start-Process -FilePath 'powershell.exe' -WindowStyle Hidden -PassThru -ArgumentList @(
+    $monitorScript = Join-Path $PSScriptRoot 'monitor-resource.ps1'
+    $monitorProcess = Start-Process -FilePath 'powershell.exe' -WindowStyle Hidden -PassThru `
+        -RedirectStandardOutput $monitorOut -RedirectStandardError $monitorErr -ArgumentList @(
         '-NoProfile',
         '-ExecutionPolicy', 'Bypass',
-        '-File', (Join-Path $PSScriptRoot 'monitor-resource.ps1'),
+        '-File', "`"$monitorScript`"",
         '-TargetPid', $backendProcess.Id,
-        '-OutputCsv', $resourcePath,
-        '-StopFile', $monitorStop
+        '-OutputCsv', "`"$resourcePath`"",
+        '-StopFile', "`"$monitorStop`""
     )
+
+    # Prove that the independent monitor is alive before spending minutes on JMeter.
+    foreach ($monitorAttempt in 1..20) {
+        Start-Sleep -Milliseconds 250
+        if (Test-Path -LiteralPath $resourcePath) { break }
+        if ($monitorProcess.HasExited) {
+            $monitorError = if (Test-Path -LiteralPath $monitorErr) { Get-Content -LiteralPath $monitorErr -Raw } else { '' }
+            throw "Resource monitor exited before producing CSV. $monitorError"
+        }
+    }
+    if (-not (Test-Path -LiteralPath $resourcePath)) {
+        throw "Resource monitor did not produce its first CSV row within 5 seconds. See $monitorErr"
+    }
 
     $arguments = @(
         '-n',
@@ -102,17 +126,22 @@ try {
 } finally {
     New-Item -ItemType File -Force -Path $monitorStop | Out-Null
     if ($monitorProcess -and -not $monitorProcess.HasExited) {
-        $monitorProcess.WaitForExit(5000)
+        $monitorProcess.WaitForExit(5000) | Out-Null
         if (-not $monitorProcess.HasExited) { Stop-Process -Id $monitorProcess.Id -Force }
     }
     if ($backendProcess -and -not $backendProcess.HasExited) {
         Stop-Process -Id $backendProcess.Id
-        $backendProcess.WaitForExit(5000)
+        $backendProcess.WaitForExit(5000) | Out-Null
     }
     Remove-Item -LiteralPath $monitorStop -Force -ErrorAction SilentlyContinue
 }
+
+if (-not (Test-Path -LiteralPath $resourcePath)) { throw "Missing resource CSV after run: $resourcePath" }
+$resourceRows = @(Import-Csv -LiteralPath $resourcePath).Count
+if ($resourceRows -lt 2) { throw "Resource CSV has too few observations: $resourceRows" }
 
 Write-Output "Scenario=$Scenario Mode=$mode"
 Write-Output "JTL=$jtlPath"
 Write-Output "HTML=$htmlPath"
 Write-Output "Resources=$resourcePath"
+Write-Output "ResourceRows=$resourceRows"
