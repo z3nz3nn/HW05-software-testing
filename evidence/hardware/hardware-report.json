@@ -1,0 +1,33 @@
+﻿{
+    "collected_at":  "2026-08-14T00:52:39.6786313+07:00",
+    "hostname":  "ASUS",
+    "manufacturer":  "ASUSTeK COMPUTER INC.",
+    "model":  "ROG Zephyrus G14 GA401QM_GA401QM",
+    "os":  "Microsoft Windows 11 Pro",
+    "os_version":  "10.0.26200",
+    "cpu":  "AMD Ryzen 7 5800HS with Radeon Graphics         ",
+    "physical_cores":  8,
+    "logical_processors":  16,
+    "ram_gb":  23.41,
+    "gpu":  "AMD Radeon(TM) Graphics",
+    "disks":  [
+                  {
+                      "drive":  "C:",
+                      "size_gb":  268.62,
+                      "free_gb":  54.09
+                  },
+                  {
+                      "drive":  "E:",
+                      "size_gb":  634.76,
+                      "free_gb":  107.72
+                  },
+                  {
+                      "drive":  "F:",
+                      "size_gb":  48.83,
+                      "free_gb":  32.26
+                  }
+              ],
+    "java":  "openjdk version \"17.0.19\" 2026-04-21\r\nOpenJDK Runtime Environment Temurin-17.0.19+10 (build 17.0.19+10)\r\nOpenJDK 64-Bit Server VM Temurin-17.0.19+10 (build 17.0.19+10, mixed mode, sharing)",
+    "node":  "v24.16.0",
+    "jmeter":  "Apache JMeter 5.6.3 (SHA-512 verified portable binary)"
+}

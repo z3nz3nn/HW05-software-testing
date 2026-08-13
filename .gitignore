@@ -7,6 +7,10 @@ runtime/
 results/smoke/
 reports/html/smoke/
 reports/pdf/*.tmp
+temp/
+evidence/invalid-runs/**
+!evidence/invalid-runs/20260814-load-missing-resource/
+evidence/invalid-runs/20260814-load-missing-resource/*
+!evidence/invalid-runs/20260814-load-missing-resource/README.md
 
 # Keep measured final JTL/HTML/resource evidence under version control.
-

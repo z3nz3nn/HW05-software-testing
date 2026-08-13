@@ -19,6 +19,15 @@
 7. **Weak substring assertion.** Gemini’s revised answer suggested searching the GET response for quoted id/email substrings. The final assertion parses JSON and matches both fields on the same object.
 8. **Unproven thresholds.** p95 <500 ms and error <1% are explicitly hypotheses, not measured facts. Final thresholds must be based on the raw JTL and resource evidence.
 
+## Measurement verdict on the disputed predictions
+
+- No `SQLITE_BUSY`, timeout or non-200 response occurred in 265,771 accepted endpoint samples across Load/Stress/Spike/Soak. The original “primary lock error” prediction is not supported by these runs.
+- Stress shows queuing/diminishing return instead: from 30 to 40 users throughput rises only 0.86% while p95 rises 47.30%. Saturation onset is approximately 30 users, not an observed crash point.
+- Whole-machine-normalized Node CPU remained low (Stress p95 3.568% across 16 logical processors), so “one-core CPU saturation dictates the ceiling” was not observed.
+- Spike p95 rose to 120 ms and returned to 10 ms in the next 60-second window; recovery is empirically under 60 seconds.
+- In the 15-minute Soak, five-minute trailing working-set slope was +0.030 MB/min and private-memory slope −0.025 MB/min. This supports a plateau in the measured interval, not a general proof of no leak.
+- The duplicate-email mismatch was proven by two identical requests returning HTTP 200 with IDs 3 and 4.
+
 ## Human sign-off checklist
 
 - [ ] Confirm the workload resembles expected local-user behavior.
@@ -26,4 +35,3 @@
 - [ ] Inspect at least one sampler response in GUI before full CLI execution.
 - [ ] Verify timestamps, filenames, and student identity.
 - [ ] Compare all reported metrics against the committed raw JTL.
-

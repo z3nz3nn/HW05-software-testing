@@ -1,0 +1,21 @@
+﻿{
+    "collected_at":  "2026-08-14T00:54:20.8171533+07:00",
+    "requirement":  "FR-01: Email must be unique",
+    "request_body":  {
+                         "email":  "duplicate-evidence@loadtest.local",
+                         "name":  "Duplicate Evidence",
+                         "password":  "Duplicate123!"
+                     },
+    "first_status":  200,
+    "first_response":  {
+                           "message":  "User registered successfully",
+                           "id":  3
+                       },
+    "second_status":  200,
+    "second_response":  {
+                            "message":  "User registered successfully",
+                            "id":  4
+                        },
+    "observed":  "Both identical registrations returned HTTP 200 with different user IDs.",
+    "expected":  "The second registration must be rejected with a 4xx response and a safe uniqueness message."
+}
