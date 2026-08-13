@@ -26,6 +26,7 @@ These items require the student or access that Chrome currently does not provide
 ## GitHub and video
 
 - [ ] Confirm the public repository contains no secret or personal data.
+- [ ] Sign in to the `z3nz3nn` GitHub account in the currently connected Chrome session; the current logged-out session cannot see the private repository's Issue form.
 - [ ] Publish the duplicate-email issue on this repository's GitHub Issues page and attach `evidence/screenshots/04-duplicate-email-reproduction.png`.
 - [ ] Record the 8–10 minute Vietnamese video using `docs/video-script-vi.md`.
 - [ ] Upload YouTube as **Unlisted**, test in incognito, and replace `[VIDEO_URL]` everywhere.
