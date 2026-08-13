@@ -1,0 +1,39 @@
+{
+  "source": "23127373_Soak_20260814.csv",
+  "samples": 895,
+  "start_timestamp": "2026-08-14T01:25:28.1243478+07:00",
+  "end_timestamp": "2026-08-14T01:40:33.7424808+07:00",
+  "duration_seconds": 905.618,
+  "node_cpu_percent": {
+    "mean": 0.476,
+    "p95": 0.774,
+    "max": 1.16
+  },
+  "working_set_mb": {
+    "start": 65.945,
+    "end": 127.48,
+    "delta": 61.535,
+    "p95": 127.426,
+    "max": 128.098,
+    "trailing_slope_mb_per_minute": 0.03
+  },
+  "private_memory_mb": {
+    "start": 65.891,
+    "end": 138.648,
+    "delta": 72.757,
+    "p95": 138.902,
+    "max": 139.395,
+    "trailing_slope_mb_per_minute": -0.025
+  },
+  "trailing_slope_window_seconds": 300.0,
+  "handles": {
+    "start": 231,
+    "end": 230,
+    "max": 241
+  },
+  "threads": {
+    "start": 16,
+    "end": 12,
+    "max": 16
+  }
+}
