@@ -1,7 +1,9 @@
 HW05 Git commit history
-Generated: 2026-08-14T02:10:19.0044029+07:00
+Generated: 2026-08-14T02:16:14.5493940+07:00
 Repository: E:\HCMUS\Sem9\Software Testing\HW05\HW05-software-testing
 
+0c0ecc6 | 2026-08-14T02:16:05+07:00 | Z3n | docs: add Chrome dashboard evidence
+405acca | 2026-08-14T02:10:26+07:00 | Z3n | docs: export reproducible repository history
 909af59 | 2026-08-14T02:09:50+07:00 | Z3n | docs: add manual evidence and recording guide
 98140a6 | 2026-08-14T02:09:39+07:00 | Z3n | docs: assemble measured HW05 submission reports
 45efdd1 | 2026-08-14T02:09:15+07:00 | Z3n | docs: propose continuous performance testing gates
