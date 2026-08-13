@@ -1,0 +1,39 @@
+{
+  "source": "23127373_Stress_20260814.csv",
+  "samples": 480,
+  "start_timestamp": "2026-08-14T01:08:52.9270877+07:00",
+  "end_timestamp": "2026-08-14T01:16:58.3394306+07:00",
+  "duration_seconds": 485.412,
+  "node_cpu_percent": {
+    "mean": 2.659,
+    "p95": 3.568,
+    "max": 4.096
+  },
+  "working_set_mb": {
+    "start": 65.957,
+    "end": 129.711,
+    "delta": 63.754,
+    "p95": 129.703,
+    "max": 130.055,
+    "trailing_slope_mb_per_minute": 0.467
+  },
+  "private_memory_mb": {
+    "start": 65.688,
+    "end": 139.902,
+    "delta": 74.214,
+    "p95": 139.68,
+    "max": 139.902,
+    "trailing_slope_mb_per_minute": 0.147
+  },
+  "trailing_slope_window_seconds": 300.0,
+  "handles": {
+    "start": 231,
+    "end": 230,
+    "max": 272
+  },
+  "threads": {
+    "start": 16,
+    "end": 12,
+    "max": 16
+  }
+}
