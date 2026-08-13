@@ -1,0 +1,12 @@
+.tools/
+runtime/
+.secrets/
+*.log
+*.pid
+*.stop
+results/smoke/
+reports/html/smoke/
+reports/pdf/*.tmp
+
+# Keep measured final JTL/HTML/resource evidence under version control.
+
