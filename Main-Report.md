@@ -125,6 +125,8 @@ The accepted execution order and timestamps were:
 
 JTL percentiles use nearest-rank calculation. Transaction Controller parent rows are excluded. All metrics can be regenerated with `scripts/analyze_jtl.py`; resource metrics come from `scripts/analyze_resources.py`.
 
+Chrome-captured supporting dashboards are preserved as `05-load-jmeter-dashboard.jpg`, `06-stress-jmeter-dashboard.jpg` and `07-spike-jmeter-dashboard.jpg` under `evidence/screenshots/`. They show the report source, execution time, 100% pass summary and available dashboard metrics. They do not replace the assignment's manual requirement to show JMeter and Task Manager in the same frame.
+
 ## 7. Results
 
 ### 7.1 Overview

@@ -1,0 +1,5 @@
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jtl text eol=lf
+*.csv text eol=lf
