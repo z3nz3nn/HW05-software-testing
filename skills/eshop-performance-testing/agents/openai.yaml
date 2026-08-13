@@ -1,0 +1,4 @@
+interface:
+  display_name: "EShop Performance Testing"
+  short_description: "Generate, run, and analyze JMeter API tests"
+  default_prompt: "Use $eshop-performance-testing to design, execute, and analyze an EShop performance-test workflow."
