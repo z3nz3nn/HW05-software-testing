@@ -1,0 +1,100 @@
+{
+  "source": "results\\smoke\\23127373_Load_20260814.jtl",
+  "generated_at_utc": "2026-08-13T17:41:47.561444+00:00",
+  "percentile_method": "nearest-rank",
+  "overall_endpoints_only": {
+    "samples": 546,
+    "successes": 546,
+    "errors": 0,
+    "error_rate_percent": 0.0,
+    "mean_ms": 4.918,
+    "min_ms": 1.0,
+    "max_ms": 67.0,
+    "p50_ms": 5.0,
+    "p90_ms": 7.0,
+    "p95_ms": 9.0,
+    "p99_ms": 12.0,
+    "throughput_samples_per_second": 80.3414,
+    "wall_seconds": 6.796,
+    "start_epoch_ms": 1786642888648,
+    "end_epoch_ms": 1786642895444
+  },
+  "by_label": {
+    "01_POST_register": {
+      "samples": 182,
+      "successes": 182,
+      "errors": 0,
+      "error_rate_percent": 0.0,
+      "mean_ms": 6.731,
+      "min_ms": 4.0,
+      "max_ms": 67.0,
+      "p50_ms": 6.0,
+      "p90_ms": 8.0,
+      "p95_ms": 9.0,
+      "p99_ms": 14.0,
+      "throughput_samples_per_second": 26.8199,
+      "wall_seconds": 6.786,
+      "start_epoch_ms": 1786642888648,
+      "end_epoch_ms": 1786642895434
+    },
+    "02_GET_admin_users": {
+      "samples": 182,
+      "successes": 182,
+      "errors": 0,
+      "error_rate_percent": 0.0,
+      "mean_ms": 1.709,
+      "min_ms": 1.0,
+      "max_ms": 4.0,
+      "p50_ms": 2.0,
+      "p90_ms": 2.0,
+      "p95_ms": 3.0,
+      "p99_ms": 4.0,
+      "throughput_samples_per_second": 28.9394,
+      "wall_seconds": 6.289,
+      "start_epoch_ms": 1786642889148,
+      "end_epoch_ms": 1786642895437
+    },
+    "03_DELETE_registered_user": {
+      "samples": 182,
+      "successes": 182,
+      "errors": 0,
+      "error_rate_percent": 0.0,
+      "mean_ms": 6.313,
+      "min_ms": 5.0,
+      "max_ms": 18.0,
+      "p50_ms": 6.0,
+      "p90_ms": 8.0,
+      "p95_ms": 9.0,
+      "p99_ms": 16.0,
+      "throughput_samples_per_second": 29.4308,
+      "wall_seconds": 6.184,
+      "start_epoch_ms": 1786642889260,
+      "end_epoch_ms": 1786642895444
+    }
+  },
+  "time_windows": [
+    {
+      "window_start_seconds": 0,
+      "window_end_seconds": 30,
+      "samples": 546,
+      "successes": 546,
+      "errors": 0,
+      "error_rate_percent": 0.0,
+      "mean_ms": 4.918,
+      "min_ms": 1.0,
+      "max_ms": 67.0,
+      "p50_ms": 5.0,
+      "p90_ms": 7.0,
+      "p95_ms": 9.0,
+      "p99_ms": 12.0,
+      "throughput_samples_per_second": 80.3414,
+      "wall_seconds": 6.796,
+      "start_epoch_ms": 1786642888648,
+      "end_epoch_ms": 1786642895444
+    }
+  ],
+  "response_codes": {
+    "200": 546
+  },
+  "failure_messages": []
+}
