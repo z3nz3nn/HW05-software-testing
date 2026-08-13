@@ -12,20 +12,19 @@
 | Strong assertions and cleanup | Exact parsed JSON match on id/email; delete continues after GET failure | Implemented |
 | Three distinct listener/report views | Load: Summary Report; Stress: Aggregate Report; Spike: View Results Tree | Implemented; GUI screenshots pending human recording |
 | CLI execution | `scripts/run-scenario.ps1` invokes JMeter `-n` | Implemented |
-| Raw JTL and HTML reports | `results/*.jtl`, `reports/html/*` | Pending execution |
-| Resource evidence | Per-second Node process CSV; browser report screenshots | Pending execution; Task Manager same-frame capture is manual |
-| 10–15 minute endurance threshold | 15-minute Soak plan plus measured analysis | Pending execution |
-| AI-first design and review | Gemini Pro multi-turn audit with screenshots and verbatim prompts/outputs | In progress |
+| Raw JTL and HTML reports | `results/*.jtl`, `reports/html/*` | Completed for Load/Stress/Spike/Soak |
+| Resource evidence | Per-second Node process CSV; browser report screenshots | CSV/spec/browser evidence completed; Task Manager same-frame capture is manual |
+| 10–15 minute endurance threshold | 15-minute Soak plan plus measured analysis | Completed: 10 users, 43.94 samples/s, p95 6 ms, 128.10 MB working-set ceiling |
+| AI-first design and review | Gemini Pro multi-turn audit with screenshots and prompts/outputs | Design and corrective review completed; raw-JTL upload pending Chrome permission |
 | AI analysis/misinterpretation hunt | Raw JTL metrics compared with Gemini interpretation | Pending results |
 | Optimization feasibility critique | Source-backed classification | Pending results |
-| Continuous performance model + flowchart | Main report section and CI proposal | Pending |
-| Agent Skill | `skills/eshop-performance-testing` | In progress |
-| Demo video ≥6 minutes, same-frame tool/resource monitor, Vietnamese narration | `docs/video-script-vi.md` | Script pending; recording is manual-only |
-| AI Critique 200–300 words | `AI-Critique.md` | Pending final Gemini interaction |
-| AI Audit Report | `AI-Audit-Report.md` | In progress |
-| Hardware screenshot/spec table | Hardware text evidence and report table | Text evidence pending; GUI screenshot manual-only |
-| Genuine GitHub Issues | Duplicate email bug candidate, only after live reproduction | Pending reproduction |
+| Continuous performance model + flowchart | Main report section and CI proposal | Completed in `docs/continuous-performance-testing.md` |
+| Agent Skill | `skills/eshop-performance-testing` | Completed and official validator passed |
+| Demo video ≥6 minutes, same-frame tool/resource monitor, Vietnamese narration | `docs/video-script-vi.md` | Detailed 8–10 minute script complete; recording is manual-only |
+| AI Critique 200–300 words | `AI-Critique.md` | Completed: 269 words |
+| AI Audit Report | `AI-Audit-Report.md` | G-01/G-02 completed; G-03/G-04 pending raw-JTL upload |
+| Hardware screenshot/spec table | Hardware text evidence and report table | dxdiag text/spec/browser screenshot completed; GUI screenshot manual-only |
+| Genuine GitHub Issues | Duplicate email bug candidate, only after live reproduction | Reproduced with HTTP 200 IDs 3/4; public Issue creation/screenshot pending |
 | Git commit per procedure step | Logical commits and `git-commit-log.txt` | In progress |
-| Main report Markdown + PDF | `Main-Report.md`, `reports/pdf/Main-Report.pdf` | Pending |
-| README self-assessment and summary | `README.md` | Pending final metrics/video URL |
-
+| Main report Markdown + PDF | `Main-Report.md`, `reports/pdf/Main-Report.pdf` | Completed; all three PDFs rendered and visually inspected |
+| README self-assessment and summary | `README.md` | Completed with real metrics; identity/video/manual items pending |

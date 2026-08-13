@@ -8,6 +8,8 @@ results/smoke/
 reports/html/smoke/
 reports/pdf/*.tmp
 temp/
+__pycache__/
+*.py[cod]
 evidence/invalid-runs/**
 !evidence/invalid-runs/20260814-load-missing-resource/
 evidence/invalid-runs/20260814-load-missing-resource/*
