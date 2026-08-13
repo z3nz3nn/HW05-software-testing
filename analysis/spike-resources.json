@@ -1,0 +1,39 @@
+{
+  "source": "23127373_Spike_20260814.csv",
+  "samples": 420,
+  "start_timestamp": "2026-08-14T01:17:51.2095514+07:00",
+  "end_timestamp": "2026-08-14T01:24:55.9546888+07:00",
+  "duration_seconds": 424.745,
+  "node_cpu_percent": {
+    "mean": 1.667,
+    "p95": 3.076,
+    "max": 3.752
+  },
+  "working_set_mb": {
+    "start": 65.883,
+    "end": 128.914,
+    "delta": 63.031,
+    "p95": 129.559,
+    "max": 129.871,
+    "trailing_slope_mb_per_minute": 0.122
+  },
+  "private_memory_mb": {
+    "start": 65.336,
+    "end": 138.848,
+    "delta": 73.512,
+    "p95": 139.887,
+    "max": 141.742,
+    "trailing_slope_mb_per_minute": 0.049
+  },
+  "trailing_slope_window_seconds": 283.163,
+  "handles": {
+    "start": 231,
+    "end": 230,
+    "max": 281
+  },
+  "threads": {
+    "start": 16,
+    "end": 12,
+    "max": 16
+  }
+}
