@@ -37,7 +37,7 @@ These items require the student or final submission access. Do not mark them com
 
 - [ ] Preserve/export the Codex task transcript if the instructor requires low-level orchestration exchanges in addition to the structured AI Audit.
 - [x] Check the Markdown and PDF visually; all three PDFs were rebuilt, text-extracted and inspected as rendered contact sheets with no clipped tables or blank trailing page.
-- [ ] Export the final `git-commit-log.txt` after the last commit.
+- [x] Export `git-commit-log.txt` after the final content/evidence commit (`a6adf69`).
 - [ ] Confirm the GitHub URL is accessible while logged out: `https://github.com/z3nz3nn/HW05-software-testing`.
 - [ ] Choose self-assessed grade after checking the lecturer's rubric clarification. The provided rows sum to 90 although the table says Total 100.
 - [ ] Create `<StudentID>_HW05_AI_Performance_<grade>.zip` only after all required documents exist.
