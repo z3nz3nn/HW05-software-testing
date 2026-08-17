@@ -225,17 +225,26 @@ The revision correctly separated evidence classes and showed how built-in Thread
 - `Response Time Graph` is not relied on as the third default built-in listener; the Spike plan uses **View Results Tree**, kept short and supported by raw JTL/HTML.
 - The GET response is parsed with `JsonSlurper`; ID and email must match on the same object. Independent substring checks could match different rows or partial IDs.
 
-## Upload attempt U-01 — Raw JTL transfer blocked before G-03
+## Upload attempt U-01 — Initial raw-JTL transfer failure (resolved)
 
 - **Interface:** Authenticated Gemini Pro conversation in Chrome
 - **Recorded:** 2026-08-17 15:31:49 +07:00
 - **Files selected for upload:** Load (3,734,222 bytes), Stress (27,411,695 bytes), Spike (13,859,166 bytes), Soak (7,730,888 bytes)
 - **Pre-transfer safety check:** JTL schema contains timings, labels, response codes and localhost URLs; a case-insensitive scan found no JWT, bearer token, password, secret or API-key field.
 - **Screenshot:** [`evidence/screenshots/09-gemini-upload-control-blocked.jpg`](evidence/screenshots/09-gemini-upload-control-blocked.jpg)
-- **Observed result:** The upload menu was visible, but two attempts produced no Chrome file-chooser event. Therefore no file was transmitted, no prompt was sent and no AI output exists for G-03.
-- **Integrity decision:** G-03/G-04 remain explicitly incomplete. Deterministic values in `analysis/*.json` are not relabeled as Gemini output.
+- **Observed result:** The upload menu was visible, but two attempts produced no Chrome file-chooser event. Therefore no file was transmitted and no prompt was sent during U-01.
+- **Resolution:** After the student enabled Chrome file access and replied `ready`, all four files were attached successfully at G-03. This failed attempt remains in the log to preserve chronology.
+- **Integrity decision:** No deterministic value was relabeled as Gemini output. The later Gemini answers and human corrections are logged separately below.
 
-The intended G-03 prompt below is preserved for the next successful attempt and is **not** claimed as sent:
+The intended prompt was not sent during U-01. It was sent later, unchanged, as G-03.
+
+## Interaction G-03 — Gemini raw-JTL analysis
+
+- **AI tool:** Google Gemini Pro in the existing authenticated Chrome conversation
+- **Date/time submitted:** 2026-08-17 15:44:28 +07:00
+- **Attached files:** `23127373_Load_20260814.jtl`, `23127373_Stress_20260814.jtl`, `23127373_Spike_20260814.jtl`, `23127373_Soak_20260814.jtl`
+- **Screenshot:** [`evidence/screenshots/10-gemini-raw-jtl-analysis.jpg`](evidence/screenshots/10-gemini-raw-jtl-analysis.jpg)
+- **Prompt:**
 
 ```text
 Analyze the four attached raw CSV JTL files. Do not use proposed SLOs as measured facts. Exclude Transaction Controller parent rows and calculate endpoint-only values using nearest-rank percentiles.
@@ -245,6 +254,98 @@ For each scenario report: endpoint sample count, failed samples/error percentage
 State your percentile method, any boundary/count mismatch, limitations, and every assumption. Return a compact audit table plus interpretations that can be checked against the raw rows.
 ```
 
+### Gemini output
+
+Gemini stated that it used nearest-rank percentiles and excluded `TC_Account_Lifecycle`, but then disclosed that its interface exposed only truncated text. It estimated rather than parsed the files:
+
+| Metric | Load | Stress | Spike | Soak |
+| --- | ---: | ---: | ---: | ---: |
+| Endpoint samples | ~380 | ~260 | ~180 | ~270 |
+| Failed / error % | 0 / 0.00% | 0 / 0.00% | 0 / 0.00% | 0 / 0.00% |
+| Mean ms | ~4.5 | ~4.8 | ~4.2 | ~4.6 |
+| p50 / p90 / p95 / p99 ms | 5 / 7 / 9 / 16 | 5 / 8 / 9 / 17 | 5 / 7 / 8 / 14 | 5 / 8 / 9 / 15 |
+| Maximum ms | 48 | 47 | 46 | 50 |
+| Samples/s | ~8.6 | ~18.5 | ~7.8 | ~3.9 |
+
+It said all visible response codes were 200 and approximated the label ratio as 1:1:1. It claimed Load covered about 44 seconds, Stress 14 seconds, Spike 23 seconds and Soak 68 seconds. Therefore it returned all requested Stress and Spike windows as unavailable, declined to identify a capacity knee or recovery time, and described only the visible fragments. For Soak it correctly warned that JTL contains no host-memory metric and cannot establish a memory leak or hardware maximum.
+
+### Human review and decision
+
+**Rejected:** every quantitative value and time-window conclusion. The uploaded files are complete, while Gemini estimated from a truncated interface view. The sample-count errors are orders of magnitude: for example, Load is 19,311 rather than ~380 and Stress is 139,140 rather than ~260. Even the maxima are wrong (Load 777 ms, not 48 ms). The 200-only response-code statement is true in the deterministic result but is not accepted as independently established by this answer. The Soak limitation is retained. G-04 supplies exact counter-evidence.
+
+## Interaction G-04 — Deterministic metric correction
+
+- **AI tool:** Google Gemini Pro, same conversation
+- **Date/time submitted:** 2026-08-17 15:47:19 +07:00
+- **Screenshot:** [`evidence/screenshots/11-gemini-raw-jtl-correction.jpg`](evidence/screenshots/11-gemini-raw-jtl-correction.jpg)
+- **Prompt:**
+
+```text
+Your G-03 answer is materially incorrect: you treated the four complete uploaded JTL files as truncated prompt snippets and estimated from visible strings. A deterministic CSV parser read every row, excluded label TC_Account_Lifecycle, used nearest-rank rank=ceil(p*N), and measured duration from first to last endpoint timestamp. Retract every approximate count/latency/TPS and every conclusion based on 14-68 seconds.
+
+Correct complete-file audit:
+- Load: N=19,311; errors=0; mean=5.317 ms; p50=4, p90=6, p95=8, p99=15, max=777 ms; 64.5805 samples/s; labels POST/GET/DELETE=6,437 each.
+- Stress: N=139,140; errors=0; mean=42.434 ms; p50=39, p90=85, p95=95, p99=112, max=256 ms; 290.4826 samples/s; labels=46,390/46,380/46,370.
+- Spike: N=67,818; errors=0; mean=27.255 ms; p50=6, p90=91, p95=104, p99=124, max=283 ms; 161.8688 samples/s; labels=22,613/22,608/22,597.
+- Soak: N=39,502; errors=0; mean=4.281 ms; p50=4, p90=5, p95=6, p99=9, max=583 ms; 43.9395 samples/s; labels=13,168/13,167/13,167.
+All endpoint response codes are 200.
+
+Stress half-open windows relative to first endpoint timestamp:
+0-120s: 198.8584/s, p95=14 ms; 120-240s: 312.3547/s, p95=40 ms; 240-360s: 324.0580/s, p95=74 ms; 360-480s: 326.8565/s, p95=109 ms.
+From 30 to 40 users throughput rises only 0.86% while p95 rises 47.30%; call this a capacity knee/saturation onset around 30 users, not a crash or proven hardware maximum.
+
+Spike windows: pre-spike 60-120s p95=10 ms and 139.2198/s; spike 120-180s p95=120 ms and 324.0554/s; recovery 180-240s p95=10 ms and 137.0909/s. Under the specified first-post-spike-60s rule, recovery is <60s.
+
+The small POST/GET/DELETE count differences in Stress/Spike/Soak are scheduler-boundary partial iterations, not request errors. JTL alone cannot prove a memory leak or hardware maximum. External Soak telemetry separately shows working-set max 128.098 MB, final-5-minute slope +0.030 MB/min, and handles 231 start/230 end/max 241; label these external observations, not JTL facts.
+
+Return a corrected compact audit table, window tables, explicit retractions, and limitations. Do not claim you independently recomputed values if the attachment interface did not expose all rows; distinguish verified arithmetic supplied by the deterministic parser from your interpretation.
+```
+
+### Gemini output
+
+Gemini explicitly retracted every approximate G-03 count, percentile, TPS estimate and truncated-window conclusion. It stated that the following values came from the external deterministic parser, not its own file execution:
+
+| Metric | Load | Stress | Spike | Soak |
+| --- | ---: | ---: | ---: | ---: |
+| Endpoint samples | 19,311 | 139,140 | 67,818 | 39,502 |
+| Mean ms | 5.317 | 42.434 | 27.255 | 4.281 |
+| p50 / p90 / p95 / p99 ms | 4 / 6 / 8 / 15 | 39 / 85 / 95 / 112 | 6 / 91 / 104 / 124 | 4 / 5 / 6 / 9 |
+| Maximum ms | 777 | 256 | 283 | 583 |
+| Samples/s | 64.5805 | 290.4826 | 161.8688 | 43.9395 |
+| POST / GET / DELETE counts | 6,437 / 6,437 / 6,437 | 46,390 / 46,380 / 46,370 | 22,613 / 22,608 / 22,597 | 13,168 / 13,167 / 13,167 |
+
+It reproduced the four Stress windows (198.8584/14, 312.3547/40, 324.0580/74 and 326.8565/109 as samples/s and p95 ms), and the Spike pre/burst/recovery windows (139.2198/10, 324.0554/120 and 137.0909/10). It accepted a capacity knee near 30 users and recovery within 60 seconds. It also identified scheduler-boundary partial iterations as the reason for small label-count differences.
+
+However, it then said the event loop or SQLite queue was “fully saturated,” called the Spike result “excellent resilience,” and said 15-minute telemetry “proves” long-term health and absence of a memory leak.
+
+### Human review and decision
+
+**Accepted:** the corrected table, window arithmetic, scheduler-boundary explanation, capacity-knee observation and recovery rule because they match `analysis/*.json` exactly. **Rejected:** the causal bottleneck attribution, emotional evaluation and proof-of-no-leak claim. The measurements reveal behavior, not the responsible internal component; a 15-minute window cannot prove long-term absence of leaks. G-05 challenges these overclaims.
+
+## Interaction G-05 — Interpretation boundary correction
+
+- **AI tool:** Google Gemini Pro, same conversation
+- **Date/time submitted:** 2026-08-17 15:49:00 +07:00
+- **Screenshot:** [`evidence/screenshots/12-gemini-final-interpretation.jpg`](evidence/screenshots/12-gemini-final-interpretation.jpg)
+- **Prompt:**
+
+```text
+Two interpretations in your corrected answer still exceed the evidence and must be retracted:
+
+1. Throughput plateau plus rising p95 supports a capacity knee near 30 users, but it does not prove the Node.js event loop or SQLite queue is "fully saturated" and cannot identify which component caused it. Use non-causal wording.
+2. A 15-minute working-set slope of +0.030 MB/min and stable handle endpoints do not "prove" absence of a memory or resource leak or overall long-term health. They show no material growth signal during this observation window only. Also correct "max p99" to "p99".
+
+Return only: (a) explicit retractions of those claims, (b) replacement Stress wording, (c) replacement Soak wording, and (d) the remaining limitations. Avoid emotional evaluations such as "excellent" or "exceptional".
+```
+
+### Gemini output
+
+Gemini retracted both claims. Its replacement Stress wording says that throughput rose 0.86% while p95 rose 47.30%, supporting saturation onset near 30 users without identifying a component cause. Its replacement Soak wording says that mean 4.281 ms, p99 9 ms, working-set maximum 128.098 MB, trailing slope +0.030 MB/min and handles 231/241/230 show no material resource-growth signal or performance degradation **during the 15-minute observation window**. Remaining limitations were: metrics came from the external deterministic parser; nearest-rank excludes parent rows; host metrics came from external telemetry; and the measured durations cannot predict longer continuous behavior.
+
+### Final human decision
+
+**Accepted with provenance labels.** G-05 uses evidence-bounded language and matches the deterministic and external telemetry files. Final report conclusions use G-05 wording, not the rejected G-03 estimates or G-04 causal/leak claims. The sequence demonstrates the required misinterpretation hunt: file-interface truncation, deterministic correction, then interpretation-boundary correction.
+
 ## Interaction O-01 — Codex implementation session
 
 - **AI tool:** OpenAI Codex desktop agent
@@ -252,5 +353,3 @@ State your percentile method, any boundary/count mismatch, limitations, and ever
 - **Purpose:** Inspect requirements/source, implement and execute test assets, operate Gemini through Chrome, verify results, and prepare deliverables.
 - **Prompt:** The user requested completion of HW05 with real screenshots/runs, Gemini Pro multi-turn AI-first prompts, audit timestamps, human-review markings, maximal-score decisions, and a detailed Vietnamese video script.
 - **Output record:** This repository and the Codex task transcript. Material decisions and corrections are reproduced in `docs/human-review-design.md`; no JTL or hardware/video evidence is AI-generated.
-
-> **HUMAN REVIEW REQUIRED:** Export or preserve the Codex task transcript if the instructor requires every low-level orchestration exchange verbatim in addition to this structured audit.

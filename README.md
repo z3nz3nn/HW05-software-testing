@@ -63,13 +63,13 @@ The wrapper refuses to overwrite existing results and fails fast when the resour
 | 1 | Task 1 — Load testing | 20 | 20 | JMX, 5-minute raw JTL/HTML/resource analysis |
 | 2 | Task 1 — Stress testing | 20 | 20 | Staircase JMX, time-window capacity analysis |
 | 3 | Task 1 — Spike testing | 20 | 20 | Baseline/burst/recovery JMX and recovery evidence |
-| 4 | Task 2 — AI analysis + misinterpretation hunt | 10 | 10* | Gemini design/review logged; raw-JTL upload G-03/G-04 must be completed |
+| 4 | Task 2 — AI analysis + misinterpretation hunt | 10 | 10 | Four raw JTLs uploaded; G-03 estimates rejected, G-04 metrics corrected, G-05 overclaims retracted |
 | 5 | Task 3 — Continuous Performance Testing | 10 | 10 | Flowchart, gates and cost/false-alarm trade-offs |
 | 6 | Agent Skills | 10 | 10* | Validated reusable Skill; student must publish demo video |
 |  | **Rows total** | **90** | **90*** | Provided rubric rows sum to 90 although the file prints Total 100 |
 
-\* **HUMAN REVIEW REQUIRED:** `090` is only defensible after completing the raw-JTL Gemini upload, same-frame screenshots, required repository visibility and unlisted video. Identity, PDF generation and Issue creation are complete, but the repository is still Private. If any required item remains missing, reduce the self-assessment rather than claim unearned completion.
+\* **HUMAN REVIEW REQUIRED:** `090` is only defensible after completing the same-frame screenshots, required repository visibility and unlisted video. Identity, PDF generation, Issue creation and raw-JTL Gemini audit are complete, but the repository is still Private. If any required item remains missing, reduce the self-assessment rather than claim unearned completion.
 
 ## Human-review status
 
-The raw JTL, local hardware text report, resource CSVs, duplicate-email API responses and Issue are real. The student still must provide their own dxdiag GUI screenshot, same-frame JMeter/Task Manager evidence, Vietnamese narration/video, working Gemini file-upload permission, group confirmation, required repository visibility, YouTube link and Moodle submission. See the checklist before packaging.
+The raw JTL, local hardware text report, resource CSVs, Gemini upload/corrections, duplicate-email API responses and Issue are real. The student still must provide their own dxdiag GUI screenshot, same-frame JMeter/Task Manager evidence, Vietnamese narration/video, group confirmation, required repository visibility, YouTube link and Moodle submission. See the checklist before packaging.

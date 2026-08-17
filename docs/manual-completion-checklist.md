@@ -1,6 +1,6 @@
 # Manual completion checklist
 
-These items require the student or access that Chrome currently does not provide. Do not mark them complete without seeing the evidence.
+These items require the student or final submission access. Do not mark them complete without seeing the evidence.
 
 ## Identity and group scope
 
@@ -18,9 +18,9 @@ These items require the student or access that Chrome currently does not provide
 
 ## Gemini raw-JTL analysis
 
-- [ ] In Chrome extension details, enable **Allow access to file URLs**, then restart/reconnect Chrome if the setting was changed. Two 2026-08-17 attempts still produced no file-chooser event.
-- [ ] Upload all four raw JTL files to the existing Gemini Pro conversation.
-- [ ] Verify G-03 and corrective G-04 timestamps, prompts, full outputs and screenshots are present in `AI-Audit-Report.md`.
+- [x] Enable Chrome file access; the initial U-01 failure is retained in the audit and the later chooser succeeded.
+- [x] Upload all four raw JTL files to the existing Gemini Pro conversation.
+- [x] Record G-03, corrective G-04 and interpretation-boundary G-05 timestamps, prompts, outputs, screenshots and human decisions in `AI-Audit-Report.md`.
 - [ ] Read the output and sign off that every reported correction matches `analysis/*.json`.
 
 ## GitHub and video
@@ -35,7 +35,8 @@ These items require the student or access that Chrome currently does not provide
 
 ## Final package
 
-- [ ] Check the Markdown and PDF visually; no missing charts, clipped tables or placeholders except explicitly allowed audit notes.
+- [ ] Preserve/export the Codex task transcript if the instructor requires low-level orchestration exchanges in addition to the structured AI Audit.
+- [x] Check the Markdown and PDF visually; all three PDFs were rebuilt, text-extracted and inspected as rendered contact sheets with no clipped tables or blank trailing page.
 - [ ] Export the final `git-commit-log.txt` after the last commit.
 - [ ] Confirm the GitHub URL is accessible while logged out: `https://github.com/z3nz3nn/HW05-software-testing`.
 - [ ] Choose self-assessed grade after checking the lecturer's rubric clarification. The provided rows sum to 90 although the table says Total 100.

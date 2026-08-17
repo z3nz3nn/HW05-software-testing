@@ -15,14 +15,14 @@
 | Raw JTL and HTML reports | `results/*.jtl`, `reports/html/*` | Completed for Load/Stress/Spike/Soak |
 | Resource evidence | Per-second Node process CSV; browser report screenshots | CSV/spec/browser evidence completed; Task Manager same-frame capture is manual |
 | 10–15 minute endurance threshold | 15-minute Soak plan plus measured analysis | Completed: 10 users, 43.94 samples/s, p95 6 ms, 128.10 MB working-set ceiling |
-| AI-first design and review | Gemini Pro multi-turn audit with screenshots and prompts/outputs | Design and corrective review completed; raw-JTL upload pending Chrome permission |
-| AI analysis/misinterpretation hunt | Raw JTL metrics compared with Gemini interpretation | Pending results |
-| Optimization feasibility critique | Source-backed classification | Pending results |
+| AI-first design and review | Gemini Pro multi-turn audit with screenshots and prompts/outputs | Completed: G-01/G-02 design review plus G-03/G-04/G-05 raw-data correction chain |
+| AI analysis/misinterpretation hunt | Raw JTL metrics compared with Gemini interpretation | Completed: truncated estimates rejected, deterministic metrics matched, causal/leak overclaims retracted |
+| Optimization feasibility critique | Source-backed classification | Completed in Main Report section 9 |
 | Continuous performance model + flowchart | Main report section and CI proposal | Completed in `docs/continuous-performance-testing.md` |
 | Agent Skill | `skills/eshop-performance-testing` | Completed and official validator passed |
 | Demo video ≥6 minutes, same-frame tool/resource monitor, Vietnamese narration | `docs/video-script-vi.md` | Detailed 8–10 minute script complete; recording is manual-only |
-| AI Critique 200–300 words | `AI-Critique.md` | Completed: 269 words |
-| AI Audit Report | `AI-Audit-Report.md` | G-01/G-02 completed; G-03/G-04 pending raw-JTL upload |
+| AI Critique 200–300 words | `AI-Critique.md` | Completed: 279 words |
+| AI Audit Report | `AI-Audit-Report.md` | Completed through G-05 with timestamps, prompts, outputs, screenshots and human decisions |
 | Hardware screenshot/spec table | Hardware text evidence and report table | dxdiag text/spec/browser screenshot completed; GUI screenshot manual-only |
 | Genuine GitHub Issues | Duplicate email bug candidate, only after live reproduction | Issue #1 created with HTTP 200 IDs 3/4 and screenshot; repository is still Private, so public visibility is pending explicit student approval |
 | Git commit per procedure step | Logical commits and `git-commit-log.txt` | In progress |

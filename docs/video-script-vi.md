@@ -83,9 +83,9 @@ Trong lúc chạy, click `node.exe` trong Task Manager để CPU/Memory/PID nhì
 
 **Lời nói:**
 
-> Em tải raw JTL vào Gemini, yêu cầu tính samples, error, p95, capacity knee, recovery và optimization. Em không nhận output trực tiếp. Em đối chiếu bằng analyzer nearest-rank. [ĐỌC 1–2 SAI LỆCH THẬT TỪ PHẦN G-03/G-04 SAU KHI HOÀN TẤT UPLOAD]. Mỗi prompt có tên công cụ, timestamp, prompt, output và quyết định human review trong AI Audit. Khuyến nghị nào không gắn được với source hoặc measurement được đánh dấu hallucinated hoặc cần benchmark lại.
+> Em tải đủ bốn raw JTL vào Gemini và yêu cầu nearest-rank, loại Transaction Controller, tính capacity knee và recovery. Ở G-03, Gemini chỉ nhìn thấy chuỗi bị cắt nên ước lượng Load khoảng 380 samples và Stress khoảng 260, trong khi analyzer đọc toàn file cho kết quả 19.311 và 139.140. Gemini cũng báo các window không tính được. Em bác bỏ toàn bộ số định lượng đó.
 
-> **HUMAN REVIEW REQUIRED:** Không quay đoạn này cho tới khi G-03/G-04 trong AI Audit đã có output thật; tuyệt đối không đọc placeholder.
+> Ở G-04, em đưa bảng xác định từ parser. Gemini rút lại số cũ và khớp các metric, nhưng lại nói một component đã “fully saturated” và telemetry 15 phút chứng minh không có memory leak. G-05 buộc AI rút lại hai kết luận vượt bằng chứng. Kết luận cuối chỉ là capacity knee quan sát gần 30 users và không thấy tín hiệu tăng tài nguyên đáng kể trong đúng cửa sổ 15 phút. Mỗi prompt có timestamp, output, screenshot và quyết định human review trong AI Audit.
 
 ## 7:05–7:45 — Bug thật và Agent Skill
 

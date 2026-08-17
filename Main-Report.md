@@ -77,7 +77,7 @@ Material corrections:
 6. Gemini's independent substring checks were replaced with a `JsonSlurper` assertion requiring the extracted ID and generated email on the same JSON object.
 7. Proposed p95/error values are labeled starting SLO hypotheses, not measured facts.
 
-The full human review is in `docs/human-review-design.md`. The mandatory 269-word critique is in `AI-Critique.md`.
+The full human review is in `docs/human-review-design.md`. The mandatory 279-word critique is in `AI-Critique.md`.
 
 ## 5. Final JMeter design
 
@@ -191,9 +191,9 @@ The controlled reproduction sent the identical registration body twice. Both req
 
 ## 9. AI log analysis and misinterpretation hunt
 
-Deterministic correct values for reviewing Gemini are the committed `analysis/*.json` files. Gemini must analyze the full JTL files, not just the tables above. The required analysis prompt asks it to calculate per-scenario samples, errors, nearest-rank p95, per-label values, Stress 120-second windows, Spike 60-second recovery and Soak stability, then propose source-aware optimizations.
+The four complete JTL files were uploaded to the existing Gemini Pro conversation. G-03 was asked to exclude parent rows, use nearest-rank percentiles and report aggregate plus window metrics. Gemini disclosed that its interface exposed only truncated strings, but still estimated from those fragments: it reported only ~380 Load and ~260 Stress endpoint samples instead of 19,311 and 139,140, used maxima 48/47 ms instead of 777/256 ms, and declared all requested Stress/Spike windows unavailable. Every quantitative G-03 result was rejected.
 
-> **HUMAN REVIEW REQUIRED / CURRENT BLOCKER:** On 2026-08-17, the authenticated Gemini Pro conversation and its upload menu were verified, but Chrome produced no file-chooser event in two controlled attempts. No JTL was transmitted and no Gemini result was fabricated. Re-enable **Allow access to file URLs** for the ChatGPT Chrome extension, restart/reconnect Chrome if needed, then complete G-03 and corrective G-04 in the same conversation. Until those interactions exist, Task 2 is not complete and must not be claimed in the final ZIP.
+G-04 supplied the independently calculated `analysis/*.json` values. Gemini explicitly retracted G-03 and reproduced all aggregate/window values, including the 30→40-user throughput increase of 0.86%, p95 increase of 47.30%, and Spike recovery below 60 seconds. It then overreached again by claiming a particular internal component was “fully saturated” and that 15-minute telemetry proved no memory leak. G-05 retracted both claims. The accepted conclusion is limited to a measured capacity knee near 30 users and no material memory/handle growth signal during the observed 15 minutes; neither the internal causal component nor longer-term leak absence was proven. Exact timestamps, prompts, outputs, screenshots and human decisions are in `AI-Audit-Report.md`.
 
 Optimization classifications already supported by source/reproduction:
 
@@ -207,7 +207,7 @@ Optimization classifications already supported by source/reproduction:
 | Cache `GET /api/admin/users` | Conditionally feasible but security-sensitive | Must invalidate on user mutations and enforce authorization; could expose stale/sensitive data |
 | Raise JMeter threads until an HTTP crash appears | Rejected test advice | Capacity knee is already measurable; forcing a co-located laptop crash confounds generator and SUT |
 
-Final classification will be updated against Gemini's actual G-03/G-04 recommendations.
+G-03–G-05 did not produce new optimization recommendations; therefore the table remains a source- and measurement-backed feasibility classification instead of attributing invented recommendations to Gemini.
 
 ## 10. Continuous Performance Testing proposal
 
@@ -234,11 +234,11 @@ Main trade-offs are runner cost, co-located noise, false alarms, false negatives
 
 Within those limits, Load, Stress, Spike and Soak all completed with 0 assertion/HTTP errors. Load established a 15-user baseline; Stress found diminishing return around 30 users; Spike recovered within the next 60-second window; and Soak verified 10 users for 15 minutes at p95 6 ms, 43.94 samples/s and a stable five-minute memory slope. The strongest lesson from the AI-first process is that confident AI output becomes useful only after source inspection, real execution and independent metric recalculation.
 
-## 13. AI Critique (269 words)
+## 13. AI Critique (279 words)
 
-Gemini was useful for turning the assignment constraints into an initial workload model, but its first answer mixed source facts, common performance-testing patterns, and unsupported predictions. It claimed that `SQLITE_BUSY` would be the primary bottleneck and that Node.js would saturate one core first. The implementation actually opens one shared `sqlite3` connection, so queuing was at least as plausible; the measured Stress run produced no lock errors and instead showed a capacity knee: throughput changed only from 324.06 to 326.86 samples/s between 30 and 40 users while p95 rose from 74 to 109 ms. Gemini also inherited my incorrect statement that duplicate emails fail. Source review and two real requests proved the opposite: both returned HTTP 200 with different IDs. Its data-isolation recommendation—50,000 CSV rows plus replacing an open database file—was unnecessary and unsafe. A UUID email and controlled backend restart were more defensible.
+Gemini helped turn the assignment constraints into an initial workload model, but its first answer mixed source facts, generic testing patterns, and unsupported predictions. It claimed `SQLITE_BUSY` would be the primary bottleneck and that Node.js would saturate one core first. The source actually opens one shared `sqlite3` connection, so request queuing was at least as plausible. The measured Stress run produced no lock errors; instead, throughput changed only from 324.06 to 326.86 samples/s between 30 and 40 users while p95 rose from 74 to 109 ms. Gemini also inherited my incorrect statement that duplicate emails fail. Source review and two real requests proved the opposite: both returned HTTP 200 with different IDs. Its proposal for 50,000 CSV rows and replacement of an open database file was unnecessary and unsafe. A UUID email and controlled backend restart were more defensible.
 
-The revised answer improved after a focused corrective prompt, yet still suggested substring checks for the GET response and a questionable listener choice. Substrings could match an ID and email from different objects, so the final JMeter assertion parses JSON and requires both fields on the same user object. These failures occurred because the model optimized for a plausible generic design before seeing code and raw measurements; confident wording hid that uncertainty. I learned to separate facts, hypotheses, and measured values in every prompt, then test each AI claim against source, raw JTL rows, and repeatable API evidence. The productive collaboration pattern was not “ask once and accept.” It was propose, inspect, challenge with concrete counter-evidence, implement narrowly, and recalculate metrics independently before using AI recommendations.
+The raw-JTL interaction exposed a second failure mode. Although four complete files were attached, Gemini saw truncated strings and estimated about 380 Load and 260 Stress samples instead of 19,311 and 139,140. A corrective prompt supplied deterministic nearest-rank results, which Gemini reproduced, but it then attributed the capacity knee to a “fully saturated” internal component and claimed that 15-minute telemetry proved no memory leak. A final challenge made it retract both claims and limit the conclusion to the observation window. The revised design also replaced substring checks with parsed JSON matching the ID and email on the same object. These errors show why fluent caveats are not enough: provenance, arithmetic, and causal claims require separate checks. My reliable pattern became propose, inspect source, execute, recalculate from raw rows, challenge with exact counter-evidence, and accept only conclusions bounded by the measurement.
 
 ## Appendix index
 
