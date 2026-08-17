@@ -37,7 +37,7 @@ These items require the student or final submission access. Do not mark them com
 
 - [ ] Preserve/export the Codex task transcript if the instructor requires low-level orchestration exchanges in addition to the structured AI Audit.
 - [x] Check the Markdown and PDF visually; all three PDFs were rebuilt, text-extracted and inspected as rendered contact sheets with no clipped tables or blank trailing page.
-- [x] Export `git-commit-log.txt` after the final content/evidence commit (`a6adf69`).
+- [x] Export `git-commit-log.txt` after the public-repository content/evidence commit (`da0b306`).
 - [x] Confirm unauthenticated HTTP 200 for both the repository and Issue #1.
 - [ ] Choose self-assessed grade after checking the lecturer's rubric clarification. The provided rows sum to 90 although the table says Total 100.
 - [ ] Create `<StudentID>_HW05_AI_Performance_<grade>.zip` only after all required documents exist.
