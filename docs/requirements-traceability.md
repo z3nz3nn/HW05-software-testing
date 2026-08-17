@@ -24,7 +24,7 @@
 | AI Critique 200–300 words | `AI-Critique.md` | Completed: 279 words |
 | AI Audit Report | `AI-Audit-Report.md` | Completed through G-05 with timestamps, prompts, outputs, screenshots and human decisions |
 | Hardware screenshot/spec table | Hardware text evidence and report table | dxdiag text/spec/browser screenshot completed; GUI screenshot manual-only |
-| Genuine GitHub Issues | Duplicate email bug candidate, only after live reproduction | Issue #1 created with HTTP 200 IDs 3/4 and screenshot; repository is still Private, so public visibility is pending explicit student approval |
+| Genuine GitHub Issues | Duplicate email bug candidate, only after live reproduction | Issue #1 created with HTTP 200 IDs 3/4; repository and Issue are Public and unauthenticated HTTP 200 was verified |
 | Git commit per procedure step | Logical commits and `git-commit-log.txt` | Completed through final content/evidence commit; log exported |
 | Main report Markdown + PDF | `Main-Report.md`, `reports/pdf/Main-Report.pdf` | Completed; all three PDFs rendered and visually inspected |
 | README self-assessment and summary | `README.md` | Completed with real metrics; identity/video/manual items pending |

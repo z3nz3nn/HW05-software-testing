@@ -187,7 +187,7 @@ The empirically verified hardware endurance threshold is **10 concurrent users, 
 
 ## 8. Genuine issue
 
-The controlled reproduction sent the identical registration body twice. Both requests returned HTTP 200, with IDs 3 and 4. This violates FR-01 email uniqueness. The verified report was published as [GitHub Issue #1](https://github.com/z3nz3nn/HW05-software-testing/issues/1), with the committed reproduction screenshot embedded in the issue. Chrome then verified that the repository is still **Private**, so the Issue exists but is not publicly accessible until the student explicitly changes repository visibility. Local evidence is preserved in `evidence/issues/duplicate-email/`, `docs/issues/duplicate-email-registration.md`, and `evidence/screenshots/08-github-issue-created.jpg`.
+The controlled reproduction sent the identical registration body twice. Both requests returned HTTP 200, with IDs 3 and 4. This violates FR-01 email uniqueness. The verified report was published as [GitHub Issue #1](https://github.com/z3nz3nn/HW05-software-testing/issues/1), with the committed reproduction screenshot embedded in the issue. On 2026-08-17 the repository was changed to **Public** after a tracked-file secret-pattern scan returned no matches; unauthenticated requests then returned HTTP 200 for both the repository and Issue. Local evidence is preserved in `evidence/issues/duplicate-email/`, `docs/issues/duplicate-email-registration.md`, `evidence/screenshots/08-github-issue-created.jpg`, and `evidence/screenshots/13-github-public-repository.jpg`.
 
 ## 9. AI log analysis and misinterpretation hunt
 

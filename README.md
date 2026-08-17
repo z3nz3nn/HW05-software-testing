@@ -4,7 +4,7 @@
 | --- | --- |
 | Student | **Nguyễn Đình Thái Hưng** |
 | Student ID | **23127373** |
-| Repository | <https://github.com/z3nz3nn/HW05-software-testing> — **Private; make Public before submission if required** |
+| Repository | <https://github.com/z3nz3nn/HW05-software-testing> — **Public; unauthenticated HTTP 200 verified on 2026-08-17** |
 | Demo video | **[VIDEO_URL — HUMAN REVIEW REQUIRED]** |
 
 This repository contains real JMeter 5.6.3 non-GUI runs against the local EShop Node.js/Express/SQLite backend. The unique account-lifecycle workflow is used unchanged in Load, Stress and Spike:
@@ -24,7 +24,7 @@ The three endpoint groups are auth-heavy registration, read-heavy user lookup, a
 
 Endurance threshold on this hardware is therefore **10 concurrent users at about 43.94 endpoint samples/s, p95 6 ms, 0% errors, and observed Node working-set ceiling 128.10 MB for 15 minutes**. This is a localhost/co-located test limit, not a production SLA or proof of the maximum possible stable concurrency.
 
-Genuine bugs found: **1** — FR-01 duplicate email accepted twice (both HTTP 200, IDs 3 and 4). See [GitHub Issue #1](https://github.com/z3nz3nn/HW05-software-testing/issues/1), `docs/issues/duplicate-email-registration.md`, and `evidence/issues/duplicate-email/`. The repository remains Private, so Issue visibility is not yet public.
+Genuine bugs found: **1** — FR-01 duplicate email accepted twice (both HTTP 200, IDs 3 and 4). See [GitHub Issue #1](https://github.com/z3nz3nn/HW05-software-testing/issues/1), `docs/issues/duplicate-email-registration.md`, and `evidence/issues/duplicate-email/`. Repository and Issue public access were verified without an authenticated browser session.
 
 ## Deliverables
 
@@ -68,8 +68,8 @@ The wrapper refuses to overwrite existing results and fails fast when the resour
 | 6 | Agent Skills | 10 | 10* | Validated reusable Skill; student must publish demo video |
 |  | **Rows total** | **90** | **90*** | Provided rubric rows sum to 90 although the file prints Total 100 |
 
-\* **HUMAN REVIEW REQUIRED:** `090` is only defensible after completing the same-frame screenshots, required repository visibility and unlisted video. Identity, PDF generation, Issue creation and raw-JTL Gemini audit are complete, but the repository is still Private. If any required item remains missing, reduce the self-assessment rather than claim unearned completion.
+\* **HUMAN REVIEW REQUIRED:** `090` is only defensible after completing the same-frame screenshots and unlisted video. Identity, PDF generation, Issue creation, public repository visibility and raw-JTL Gemini audit are complete. If any required item remains missing, reduce the self-assessment rather than claim unearned completion.
 
 ## Human-review status
 
-The raw JTL, local hardware text report, resource CSVs, Gemini upload/corrections, duplicate-email API responses and Issue are real. The student still must provide their own dxdiag GUI screenshot, same-frame JMeter/Task Manager evidence, Vietnamese narration/video, group confirmation, required repository visibility, YouTube link and Moodle submission. See the checklist before packaging.
+The raw JTL, local hardware text report, resource CSVs, Gemini upload/corrections, duplicate-email API responses, public repository and Issue are real. The student still must provide their own dxdiag GUI screenshot, same-frame JMeter/Task Manager evidence, Vietnamese narration/video, group confirmation, YouTube link and Moodle submission. See the checklist before packaging.
