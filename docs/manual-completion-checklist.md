@@ -6,22 +6,34 @@ These items require the student or final submission access. Do not mark them com
 
 - [x] Replace identity placeholders with **Nguyễn Đình Thái Hưng**.
 - [x] Confirm MSSV `23127373`.
-- [ ] Send `docs/group-selection-message.md` and save the group's confirmation that the workflow is unique.
-- [ ] Confirm test date `20260814` is acceptable as the filename date.
+- [x] Student confirmed on **2026-08-18** that the account-lifecycle workflow is unique within the group.
+- [x] Verify test-plan date `20260814`: the first samples in all four committed JTL files were recorded on 2026-08-14 (Asia/Ho_Chi_Minh).
 
-## Screenshots and hardware
+## Manual screenshots still required (minimum four)
 
-- [ ] Open `dxdiag` GUI, verify hostname `ASUS`, and capture a readable screenshot.
-- [ ] For Load, Stress and Spike, capture JMeter/tool output and Task Manager's `node.exe` CPU/Memory in the **same frame**. The existing HTML/report screenshots are supporting evidence, not a substitute for this requirement.
-- [ ] Verify every screenshot shows the correct scenario and no secret/JWT.
-- [ ] Add the manual images to `evidence/screenshots/manual/` and reference them from `Main-Report.md`.
+- [ ] `evidence/screenshots/manual/01-dxdiag-system.png`: open `dxdiag` → **System** tab and capture a readable frame containing Computer Name `ASUS`, OS, Processor and Memory.
+- [ ] `evidence/screenshots/manual/02-load-jmeter-task-manager.png`: while the full **Load** rerun is active, show JMeter non-GUI output and Task Manager's backend `node.exe` row with **CPU** and **Memory** in one frame.
+- [ ] `evidence/screenshots/manual/03-stress-jmeter-task-manager.png`: same evidence for the full **Stress** rerun.
+- [ ] `evidence/screenshots/manual/04-spike-jmeter-task-manager.png`: same evidence for the full **Spike** rerun.
+- [ ] Check that each scenario frame visibly identifies Load/Stress/Spike, was captured while its load was active, and contains no JWT, token, password or other secret.
+- [ ] Reference all four manual images from `Main-Report.md`, rebuild `reports/pdf/Main-Report.pdf`, and visually inspect the rendered pages.
+
+Use **PowerShell in the VS Code terminal**, one command at a time. Arrange the terminal and Task Manager → Details side-by-side before taking each screenshot:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\run-scenario.ps1 -Scenario Load -ArtifactSuffix manual-evidence
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\run-scenario.ps1 -Scenario Stress -ArtifactSuffix manual-evidence
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\run-scenario.ps1 -Scenario Spike -ArtifactSuffix manual-evidence
+```
+
+The suffix protects the accepted result files from overwrite. These are full evidence reruns (approximately 5, 8 and 7 minutes), not shortened smoke tests. If a suffixed result already exists, use a new suffix such as `manual-evidence-2`; the wrapper intentionally refuses overwrites.
 
 ## Gemini raw-JTL analysis
 
 - [x] Enable Chrome file access; the initial U-01 failure is retained in the audit and the later chooser succeeded.
 - [x] Upload all four raw JTL files to the existing Gemini Pro conversation.
 - [x] Record G-03, corrective G-04 and interpretation-boundary G-05 timestamps, prompts, outputs, screenshots and human decisions in `AI-Audit-Report.md`.
-- [ ] Read the output and sign off that every reported correction matches `analysis/*.json`.
+- [ ] Student reads the audit and signs off that every reported correction matches `analysis/*.json`; record the sign-off date in `AI-Audit-Report.md`.
 
 ## GitHub and video
 
@@ -31,7 +43,8 @@ These items require the student or final submission access. Do not mark them com
 - [x] Publish [GitHub Issue #1](https://github.com/z3nz3nn/HW05-software-testing/issues/1) with the committed reproduction screenshot.
 - [x] Change repository visibility from **Private** to **Public** after a tracked-file secret-pattern scan; preserve `evidence/screenshots/13-github-public-repository.jpg`.
 - [ ] Record the 8–10 minute Vietnamese video using `docs/video-script-vi.md`.
-- [ ] Upload YouTube as **Unlisted**, test in incognito, and replace `[VIDEO_URL]` everywhere.
+- [ ] Ensure the video is at least 6 minutes, uses the student's own Vietnamese narration, demonstrates the complete Agent Skill workflow, and shows the tool/resource monitor in the same frame.
+- [ ] Upload YouTube as **Unlisted**, test the link while signed out/incognito, and replace `[VIDEO_URL]` in `README.md` and `Main-Report.md`.
 
 ## Final package
 
@@ -40,5 +53,6 @@ These items require the student or final submission access. Do not mark them com
 - [x] Export `git-commit-log.txt` after the public-repository content/evidence commit (`da0b306`).
 - [x] Confirm unauthenticated HTTP 200 for both the repository and Issue #1.
 - [ ] Choose self-assessed grade after checking the lecturer's rubric clarification. The provided rows sum to 90 although the table says Total 100.
-- [ ] Create `<StudentID>_HW05_AI_Performance_<grade>.zip` only after all required documents exist.
-- [ ] Inspect ZIP contents and submit it to Moodle before the deadline shown there.
+- [ ] Create `23127373_HW05_AI_Performance_<grade>.zip` only after the four screenshots, sign-off and working YouTube link are committed.
+- [ ] Inspect the ZIP for the required Markdown/PDF/JMX/JTL/evidence/Skill/Git-log artifacts and confirm that ignored local runtimes/secrets are absent.
+- [ ] Submit the ZIP to Moodle before the deadline shown there.

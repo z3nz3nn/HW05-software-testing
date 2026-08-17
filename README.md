@@ -68,8 +68,8 @@ The wrapper refuses to overwrite existing results and fails fast when the resour
 | 6 | Agent Skills | 10 | 10* | Validated reusable Skill; student must publish demo video |
 |  | **Rows total** | **90** | **90*** | Provided rubric rows sum to 90 although the file prints Total 100 |
 
-\* **HUMAN REVIEW REQUIRED:** `090` is only defensible after completing the same-frame screenshots and unlisted video. Identity, PDF generation, Issue creation, public repository visibility and raw-JTL Gemini audit are complete. If any required item remains missing, reduce the self-assessment rather than claim unearned completion.
+\* **HUMAN REVIEW REQUIRED:** `090` is only defensible after adding the dxdiag capture, three same-frame scenario captures, student AI-audit sign-off and working Unlisted video link. Identity, endpoint-group confirmation, filename date, PDF generation, Issue creation, public repository visibility and raw-JTL Gemini audit are complete. If any required item remains missing, reduce the self-assessment rather than claim unearned completion.
 
 ## Human-review status
 
-The raw JTL, local hardware text report, resource CSVs, Gemini upload/corrections, duplicate-email API responses, public repository and Issue are real. The student still must provide their own dxdiag GUI screenshot, same-frame JMeter/Task Manager evidence, Vietnamese narration/video, group confirmation, YouTube link and Moodle submission. See the checklist before packaging.
+The raw JTL, local hardware text report, resource CSVs, Gemini upload/corrections, duplicate-email API responses, public repository and Issue are real. The student confirmed the endpoint workflow is unique within the group on 2026-08-18. Before packaging, the student still must add the four manual screenshots defined in the checklist, sign off the AI Audit, record the Vietnamese demo, insert and verify its Unlisted YouTube link, choose the grade, create/inspect the ZIP and submit it to Moodle.

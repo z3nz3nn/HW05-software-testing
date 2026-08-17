@@ -17,4 +17,4 @@ POST /api/register → GET /api/admin/users → DELETE /api/admin/users/:id.
 Công cụ: JMeter 5.6.3 (non-GUI), CSV data-driven, raw JTL + HTML report.
 ```
 
-> **HUMAN REVIEW REQUIRED:** The user must send this message and receive group confirmation; an AI cannot verify private group-chat selections.
+> **Status (2026-08-18):** The student confirmed that this workflow is unique within the group. Private group-chat content is intentionally not committed to the public repository.

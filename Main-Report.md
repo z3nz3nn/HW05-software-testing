@@ -25,7 +25,7 @@ POST /api/register
 
 Mapping: registration is auth-heavy; the admin users list is read-heavy; deletion is a state-changing transactional cleanup. This workflow is present unchanged in all three required plans. The exact group message is in `docs/group-selection-message.md`.
 
-> **HUMAN REVIEW REQUIRED:** Provide the private group confirmation. The selection avoids all endpoints listed by the two friends, but an AI cannot see the group chat.
+> **Student confirmation (2026-08-18):** The account-lifecycle workflow is unique within the group. Private group-chat content is not committed to the public repository.
 
 ## 2. SUT and source review
 
@@ -61,7 +61,7 @@ The official [JMeter download](https://jmeter.apache.org/download_jmeter.cgi), [
 
 Machine-readable evidence is in `evidence/hardware/hardware-report.json`; `dxdiag.txt` and the browser-rendered evidence screenshot are also committed.
 
-> **HUMAN REVIEW REQUIRED:** Open dxdiag and add its real GUI screenshot with hostname. Chrome cannot capture Windows Task Manager/dxdiag. Add same-frame tool + `node.exe` CPU/Memory screenshots for Load, Stress and Spike.
+> **HUMAN REVIEW REQUIRED:** Add four real GUI captures under `evidence/screenshots/manual/`: `01-dxdiag-system.png` showing dxdiag System information and hostname `ASUS`; then `02-load-jmeter-task-manager.png`, `03-stress-jmeter-task-manager.png` and `04-spike-jmeter-task-manager.png`, each showing the active JMeter non-GUI run together with Task Manager's backend `node.exe` CPU and Memory in the same frame. The exact safe rerun commands and acceptance checks are in `docs/manual-completion-checklist.md`.
 
 ## 4. AI-first design and human correction
 

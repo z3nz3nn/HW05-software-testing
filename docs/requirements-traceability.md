@@ -1,10 +1,10 @@
 # HW05 requirements traceability
 
-> Student identity is confirmed as Nguyễn Đình Thái Hưng, MSSV `23127373`. **HUMAN REVIEW REQUIRED:** confirm the final filename date and that the account-lifecycle workflow is accepted as non-duplicated by the group.
+> Student identity is confirmed as Nguyễn Đình Thái Hưng, MSSV `23127373`. The student confirmed the workflow's group uniqueness on 2026-08-18. The filename date `20260814` matches the first-sample date in every committed JTL file.
 
 | Requirement | Planned artifact/evidence | Status |
 | --- | --- | --- |
-| One non-duplicated E2E workflow covering auth/read/transactional groups | `POST /api/register` → `GET /api/admin/users` → `DELETE /api/admin/users/:id` in every plan | Implemented; group confirmation pending |
+| One non-duplicated E2E workflow covering auth/read/transactional groups | `POST /api/register` → `GET /api/admin/users` → `DELETE /api/admin/users/:id` in every plan | Implemented; student confirmed group uniqueness on 2026-08-18 |
 | Load, Stress, Spike test plans | `test-plans/23127373_{Load,Stress,Spike}_20260814.jmx` | Generated and validated locally |
 | Same workflow in all three plans | Shared generator function `add_workflow` | Implemented |
 | CSV data-driven input | `data/users.csv` plus UUID-derived email | Implemented |
@@ -27,4 +27,4 @@
 | Genuine GitHub Issues | Duplicate email bug candidate, only after live reproduction | Issue #1 created with HTTP 200 IDs 3/4; repository and Issue are Public and unauthenticated HTTP 200 was verified |
 | Git commit per procedure step | Logical commits and `git-commit-log.txt` | Completed through final content/evidence commit; log exported |
 | Main report Markdown + PDF | `Main-Report.md`, `reports/pdf/Main-Report.pdf` | Completed; all three PDFs rendered and visually inspected |
-| README self-assessment and summary | `README.md` | Completed with real metrics; identity/video/manual items pending |
+| README self-assessment and summary | `README.md` | Completed with real metrics; four manual screenshots, audit sign-off and video/link remain |
