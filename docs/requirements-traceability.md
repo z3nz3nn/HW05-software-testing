@@ -1,6 +1,6 @@
 # HW05 requirements traceability
 
-> **HUMAN REVIEW REQUIRED:** confirm student ID `23127373`, student name, final date, and that the account-lifecycle workflow is accepted as non-duplicated by the group.
+> Student identity is confirmed as Nguyễn Đình Thái Hưng, MSSV `23127373`. **HUMAN REVIEW REQUIRED:** confirm the final filename date and that the account-lifecycle workflow is accepted as non-duplicated by the group.
 
 | Requirement | Planned artifact/evidence | Status |
 | --- | --- | --- |
@@ -24,7 +24,7 @@
 | AI Critique 200–300 words | `AI-Critique.md` | Completed: 269 words |
 | AI Audit Report | `AI-Audit-Report.md` | G-01/G-02 completed; G-03/G-04 pending raw-JTL upload |
 | Hardware screenshot/spec table | Hardware text evidence and report table | dxdiag text/spec/browser screenshot completed; GUI screenshot manual-only |
-| Genuine GitHub Issues | Duplicate email bug candidate, only after live reproduction | Reproduced with HTTP 200 IDs 3/4; public Issue creation/screenshot pending |
+| Genuine GitHub Issues | Duplicate email bug candidate, only after live reproduction | Issue #1 created with HTTP 200 IDs 3/4 and screenshot; repository is still Private, so public visibility is pending explicit student approval |
 | Git commit per procedure step | Logical commits and `git-commit-log.txt` | In progress |
 | Main report Markdown + PDF | `Main-Report.md`, `reports/pdf/Main-Report.pdf` | Completed; all three PDFs rendered and visually inspected |
 | README self-assessment and summary | `README.md` | Completed with real metrics; identity/video/manual items pending |

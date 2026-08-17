@@ -1,4 +1,4 @@
-# Bug report draft — FR-01 duplicate email accepted
+# Bug report — FR-01 duplicate email accepted
 
 ## Title
 
@@ -53,4 +53,4 @@ Duplicate identities make authentication/account ownership ambiguous and allow u
 
 Add a migration/constraint such as `UNIQUE COLLATE NOCASE` for normalized email, validate before insert, and map uniqueness errors to a stable 409 response. Migration behavior and case/whitespace normalization need explicit tests; do not modify the database schema only for the performance-test assignment without owner approval.
 
-> **HUMAN REVIEW REQUIRED:** Publish this on the student's GitHub Issues page after confirming the target repository and attach the screenshot. The report is source-backed; the suggested fix has not been implemented or benchmarked.
+Published as [GitHub Issue #1](https://github.com/z3nz3nn/HW05-software-testing/issues/1) on 2026-08-17. The source-backed report includes the committed reproduction screenshot; the repository was verified as Private, so public visibility remains pending. The suggested fix has not been implemented or benchmarked.

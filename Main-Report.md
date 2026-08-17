@@ -2,8 +2,8 @@
 
 | Field | Value |
 | --- | --- |
-| Student | **[FULL NAME — HUMAN REVIEW REQUIRED]** |
-| Student ID | **23127373 — HUMAN REVIEW REQUIRED** |
+| Student | **Nguyễn Đình Thái Hưng** |
+| Student ID | **23127373** |
 | Test date | 2026-08-14 (Asia/Ho_Chi_Minh) |
 | SUT | EShop Node.js/Express/SQLite backend, localhost:3000 |
 | Tool | Apache JMeter 5.6.3 non-GUI |
@@ -187,15 +187,13 @@ The empirically verified hardware endurance threshold is **10 concurrent users, 
 
 ## 8. Genuine issue
 
-The controlled reproduction sent the identical registration body twice. Both requests returned HTTP 200, with IDs 3 and 4. This violates FR-01 email uniqueness. Evidence and a publish-ready issue are in `evidence/issues/duplicate-email/` and `docs/issues/duplicate-email-registration.md`.
-
-> **HUMAN REVIEW REQUIRED:** Publish the issue on the student's GitHub Issues page and attach the real screenshot. Do not claim it is public until the URL exists.
+The controlled reproduction sent the identical registration body twice. Both requests returned HTTP 200, with IDs 3 and 4. This violates FR-01 email uniqueness. The verified report was published as [GitHub Issue #1](https://github.com/z3nz3nn/HW05-software-testing/issues/1), with the committed reproduction screenshot embedded in the issue. Chrome then verified that the repository is still **Private**, so the Issue exists but is not publicly accessible until the student explicitly changes repository visibility. Local evidence is preserved in `evidence/issues/duplicate-email/`, `docs/issues/duplicate-email-registration.md`, and `evidence/screenshots/08-github-issue-created.jpg`.
 
 ## 9. AI log analysis and misinterpretation hunt
 
 Deterministic correct values for reviewing Gemini are the committed `analysis/*.json` files. Gemini must analyze the full JTL files, not just the tables above. The required analysis prompt asks it to calculate per-scenario samples, errors, nearest-rank p95, per-label values, Stress 120-second windows, Spike 60-second recovery and Soak stability, then propose source-aware optimizations.
 
-> **HUMAN REVIEW REQUIRED / CURRENT BLOCKER:** Chrome's ChatGPT extension needs “Allow access to file URLs” enabled before the raw JTL upload. Complete interactions G-03 and G-04 in the same Gemini conversation. Record every discrepancy with Gemini's value, the correct raw-JTL value and the likely cause. Until those interactions exist, Task 2 is not complete and must not be claimed in the final ZIP.
+> **HUMAN REVIEW REQUIRED / CURRENT BLOCKER:** On 2026-08-17, the authenticated Gemini Pro conversation and its upload menu were verified, but Chrome produced no file-chooser event in two controlled attempts. No JTL was transmitted and no Gemini result was fabricated. Re-enable **Allow access to file URLs** for the ChatGPT Chrome extension, restart/reconnect Chrome if needed, then complete G-03 and corrective G-04 in the same conversation. Until those interactions exist, Task 2 is not complete and must not be claimed in the final ZIP.
 
 Optimization classifications already supported by source/reproduction:
 

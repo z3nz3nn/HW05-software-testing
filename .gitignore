@@ -8,6 +8,7 @@ results/smoke/
 reports/html/smoke/
 reports/pdf/*.tmp
 temp/
+tmp/
 __pycache__/
 *.py[cod]
 evidence/invalid-runs/**

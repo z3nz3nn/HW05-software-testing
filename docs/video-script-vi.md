@@ -17,7 +17,7 @@
 
 **Lời nói gợi ý:**
 
-> Em là [HỌ TÊN], MSSV 23127373. Bài HW05 dùng Apache JMeter 5.6.3 non-GUI kiểm thử EShop chạy localhost. Workflow không trùng nhóm của em là đăng ký tài khoản, đọc danh sách admin để xác minh đúng user vừa tạo, rồi xóa đúng ID đó. Ba scenario Load, Stress, Spike đều dùng cùng workflow. Máy đo là ASUS ROG Zephyrus G14, Ryzen 7 5800HS 8 nhân 16 luồng, RAM 23,41 GB, Windows 11 Pro, Java 17.
+> Em là Nguyễn Đình Thái Hưng, MSSV 23127373. Bài HW05 dùng Apache JMeter 5.6.3 non-GUI kiểm thử EShop chạy localhost. Workflow không trùng nhóm của em là đăng ký tài khoản, đọc danh sách admin để xác minh đúng user vừa tạo, rồi xóa đúng ID đó. Ba scenario Load, Stress, Spike đều dùng cùng workflow. Máy đo là ASUS ROG Zephyrus G14, Ryzen 7 5800HS 8 nhân 16 luồng, RAM 23,41 GB, Windows 11 Pro, Java 17.
 
 **HUMAN REVIEW:** Sửa họ tên/MSSV và chỉ nói thông số sau khi đối chiếu dxdiag GUI.
 

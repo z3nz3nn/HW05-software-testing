@@ -1,6 +1,6 @@
 # AI Audit Report
 
-> **HUMAN REVIEW REQUIRED:** Confirm student identity and append the final recording/upload interactions, if any. Do not remove unsuccessful/corrective interactions; they demonstrate the AI-first review process.
+**Student:** Nguyễn Đình Thái Hưng — **MSSV:** 23127373. Identity confirmed by the student on 2026-08-17. Unsuccessful and corrective interactions are retained because they demonstrate the AI-first review process.
 
 ## Declaration
 
@@ -224,6 +224,26 @@ The revision correctly separated evidence classes and showed how built-in Thread
 
 - `Response Time Graph` is not relied on as the third default built-in listener; the Spike plan uses **View Results Tree**, kept short and supported by raw JTL/HTML.
 - The GET response is parsed with `JsonSlurper`; ID and email must match on the same object. Independent substring checks could match different rows or partial IDs.
+
+## Upload attempt U-01 — Raw JTL transfer blocked before G-03
+
+- **Interface:** Authenticated Gemini Pro conversation in Chrome
+- **Recorded:** 2026-08-17 15:31:49 +07:00
+- **Files selected for upload:** Load (3,734,222 bytes), Stress (27,411,695 bytes), Spike (13,859,166 bytes), Soak (7,730,888 bytes)
+- **Pre-transfer safety check:** JTL schema contains timings, labels, response codes and localhost URLs; a case-insensitive scan found no JWT, bearer token, password, secret or API-key field.
+- **Screenshot:** [`evidence/screenshots/09-gemini-upload-control-blocked.jpg`](evidence/screenshots/09-gemini-upload-control-blocked.jpg)
+- **Observed result:** The upload menu was visible, but two attempts produced no Chrome file-chooser event. Therefore no file was transmitted, no prompt was sent and no AI output exists for G-03.
+- **Integrity decision:** G-03/G-04 remain explicitly incomplete. Deterministic values in `analysis/*.json` are not relabeled as Gemini output.
+
+The intended G-03 prompt below is preserved for the next successful attempt and is **not** claimed as sent:
+
+```text
+Analyze the four attached raw CSV JTL files. Do not use proposed SLOs as measured facts. Exclude Transaction Controller parent rows and calculate endpoint-only values using nearest-rank percentiles.
+
+For each scenario report: endpoint sample count, failed samples/error percentage, mean, p50, p90, p95, p99, maximum and samples/second; also list per-label counts and response-code distribution. For Stress, calculate separate 0-120s, 120-240s, 240-360s and 360-480s windows and identify a capacity knee only from throughput-versus-p95 evidence. For Spike, compare pre-spike 60-120s, spike 120-180s and recovery 180-240s and state recovery time under the rule: first post-spike 60-second window within 20% of baseline p95. For Soak, do not claim a memory leak or hardware maximum because the JTL contains no memory metrics.
+
+State your percentile method, any boundary/count mismatch, limitations, and every assumption. Return a compact audit table plus interpretations that can be checked against the raw rows.
+```
 
 ## Interaction O-01 — Codex implementation session
 
