@@ -51,7 +51,7 @@ The suffix protects the accepted result files from overwrite. These are full evi
 
 - Optional only if requested by the instructor: preserve/export the Codex task transcript in addition to the structured AI Audit.
 - [x] Check the Markdown and PDF visually; all three PDFs were rebuilt, text-extracted and inspected as rendered contact sheets with no clipped tables or blank trailing page.
-- [x] Export `git-commit-log.txt` after the final Unlisted-video evidence update (`ff544b3`).
+- [x] Export `git-commit-log.txt` after leaving ZIP creation for the student's manual submission step (`e560c61`).
 - [x] Confirm unauthenticated HTTP 200 for both the repository and Issue #1.
 - [x] Use self-assessed grade `090`, matching the six published rubric rows (which sum to 90 even though the table prints Total 100).
 - [ ] Create `23127373_HW05_AI_Performance_090.zip` manually from a cleaned submission copy; exclude the local runtimes, caches and evidence reruns listed below.
