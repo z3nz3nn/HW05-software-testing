@@ -1,7 +1,9 @@
 HW05 Git commit history
-Generated: 2026-08-18T12:29:52.2582337+07:00
+Generated: 2026-08-18T12:34:37.1243892+07:00
 Repository: E:\HCMUS\Sem9\Software Testing\HW05\HW05-software-testing
 
+ff544b3 | 2026-08-18T12:34:30+07:00 | Z3n | docs: finalize unlisted demo evidence
+fcce967 | 2026-08-18T12:30:04+07:00 | Z3n | docs: refresh submission history
 b191a89 | 2026-08-18T12:29:47+07:00 | Z3n | docs: add manual evidence and demo link
 1a7bb78 | 2026-08-18T01:52:59+07:00 | Z3n | docs: refresh completion history
 68ee2f5 | 2026-08-18T01:52:39+07:00 | Z3n | docs: confirm scope and manual evidence
