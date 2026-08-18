@@ -8,7 +8,7 @@
 | SUT | EShop Node.js/Express/SQLite backend, localhost:3000 |
 | Tool | Apache JMeter 5.6.3 non-GUI |
 | Repository | <https://github.com/z3nz3nn/HW05-software-testing> |
-| Demo | **[VIDEO_URL — HUMAN REVIEW REQUIRED]** |
+| Demo | [YouTube — 15:05](https://youtu.be/hz-N_-Y7VZY) — **currently Private; change to Unlisted before submission** |
 
 ## 1. Requirement summary and scope
 
@@ -59,9 +59,23 @@ The official [JMeter download](https://jmeter.apache.org/download_jmeter.cgi), [
 | Node.js | v24.16.0 |
 | JMeter | 5.6.3 |
 
-Machine-readable evidence is in `evidence/hardware/hardware-report.json`; `dxdiag.txt` and the browser-rendered evidence screenshot are also committed.
+Machine-readable evidence is in `evidence/hardware/hardware-report.json`; `dxdiag.txt` and the browser-rendered evidence screenshot are also committed. The following original GUI captures were taken by the student on 2026-08-18 and visually reviewed. The scenario captures show the active JMeter non-GUI terminal and Task Manager Details in one frame, with the selected backend `node.exe`, CPU and working-set-delta column. Full current working-set/private-memory measurements remain in the per-second resource CSVs and their deterministic analyses.
 
-> **HUMAN REVIEW REQUIRED:** Add four real GUI captures under `evidence/screenshots/manual/`: `01-dxdiag-system.png` showing dxdiag System information and hostname `ASUS`; then `02-load-jmeter-task-manager.png`, `03-stress-jmeter-task-manager.png` and `04-spike-jmeter-task-manager.png`, each showing the active JMeter non-GUI run together with Task Manager's backend `node.exe` CPU and Memory in the same frame. The exact safe rerun commands and acceptance checks are in `docs/manual-completion-checklist.md`.
+![dxdiag System tab showing hostname, OS, CPU and RAM](evidence/screenshots/manual/01-dxdiag-system.png)
+
+Figure 1. dxdiag System tab: hostname `ASUS`, Windows 11 Pro, Ryzen 7 5800HS and 24576 MB RAM.
+
+![Load JMeter non-GUI output and backend resource view in one frame](evidence/screenshots/manual/02-load-jmeter-task-manager.png)
+
+Figure 2. Load evidence: active non-GUI execution and selected backend `node.exe` in Task Manager.
+
+![Stress JMeter non-GUI output and backend resource view in one frame](evidence/screenshots/manual/03-stress-jmeter-task-manager.png)
+
+Figure 3. Stress evidence: active staircase execution and selected backend `node.exe` in Task Manager.
+
+![Spike JMeter non-GUI output and backend resource view in one frame](evidence/screenshots/manual/04-spike-jmeter-task-manager.png)
+
+Figure 4. Spike evidence: active spike execution and selected backend `node.exe` in Task Manager.
 
 ## 4. AI-first design and human correction
 
@@ -221,7 +235,7 @@ Main trade-offs are runner cost, co-located noise, false alarms, false negatives
 
 `skills/eshop-performance-testing` contains a validated `SKILL.md`, EShop API reference and raw-JTL summarizer. The official skill validator returned `Skill is valid!`; its analyzer reproduced the real Load smoke values. The Skill enforces source inspection, correlation/assertion review, non-GUI execution, resource evidence and deterministic metrics before AI interpretation.
 
-> **HUMAN REVIEW REQUIRED:** The student must record the end-to-end Skill demo with their own Vietnamese narration and publish the YouTube link.
+The [15:05 YouTube demo](https://youtu.be/hz-N_-Y7VZY) was inspected in Chrome on 2026-08-18. Sampled frames show the tool and Task Manager in the same frame, real JMeter output, the Agent Skill, audit/bug evidence and the continuous-testing model. **Submission blocker:** YouTube currently labels the video `Private`; the student must change it to `Unlisted`, verify access while signed out and confirm that the recording uses their own Vietnamese narration.
 
 ## 12. Limitations and conclusion
 
@@ -247,6 +261,6 @@ The raw-JTL interaction exposed a second failure mode. Although four complete fi
 - Requirements traceability: `docs/requirements-traceability.md`
 - Human design review: `docs/human-review-design.md`
 - Continuous model: `docs/continuous-performance-testing.md`
-- Video script: `docs/video-script-vi.md`
+- Demo video: <https://youtu.be/hz-N_-Y7VZY>
 - Manual checklist: `docs/manual-completion-checklist.md`
 - Git log: `git-commit-log.txt` (export after final commit)

@@ -11,6 +11,12 @@ temp/
 tmp/
 __pycache__/
 *.py[cod]
+
+# Local evidence/video reruns are preserved on disk but excluded from submission.
+results/*_manual-evidence*.jtl
+results/listeners/*-listener-manual-evidence*.jtl
+evidence/resources/*_manual-evidence*.csv
+evidence/resources/*_video-*.csv
 evidence/invalid-runs/**
 !evidence/invalid-runs/20260814-load-missing-resource/
 evidence/invalid-runs/20260814-load-missing-resource/*

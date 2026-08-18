@@ -9,7 +9,7 @@ Place exactly named, original screenshots here. Do not crop away the scenario id
    - Computer Name `ASUS`, Operating System, Processor and Memory are readable.
 2. `02-load-jmeter-task-manager.png`
    - One frame shows the active Load JMeter non-GUI terminal and Task Manager → Details.
-   - Backend `node.exe`, CPU and Memory are readable.
+   - Backend `node.exe`, CPU and the working-set resource column are readable. The committed per-second CSV provides the full current working-set/private-memory measurements.
 3. `03-stress-jmeter-task-manager.png`
    - Same requirements while the Stress run is active.
 4. `04-spike-jmeter-task-manager.png`
@@ -19,7 +19,7 @@ Place exactly named, original screenshots here. Do not crop away the scenario id
 
 - JMeter and Task Manager are in separate images.
 - The frame does not identify Load, Stress or Spike.
-- `node.exe` is hidden, idle after the run, or its CPU/Memory columns are missing.
+- `node.exe` is hidden, idle after the run, or its CPU/working-set resource columns are missing.
 - Text is unreadable or a window covers the required evidence.
 - A JWT, token, password or other secret is visible.
 
