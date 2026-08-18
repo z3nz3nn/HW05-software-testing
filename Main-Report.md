@@ -8,7 +8,7 @@
 | SUT | EShop Node.js/Express/SQLite backend, localhost:3000 |
 | Tool | Apache JMeter 5.6.3 non-GUI |
 | Repository | <https://github.com/z3nz3nn/HW05-software-testing> |
-| Demo | [YouTube — 15:05](https://youtu.be/hz-N_-Y7VZY) — **currently Private; change to Unlisted before submission** |
+| Demo | [YouTube — 15:05](https://youtu.be/hz-N_-Y7VZY) — Unlisted; unauthenticated metadata access verified 2026-08-18 |
 
 ## 1. Requirement summary and scope
 
@@ -235,7 +235,7 @@ Main trade-offs are runner cost, co-located noise, false alarms, false negatives
 
 `skills/eshop-performance-testing` contains a validated `SKILL.md`, EShop API reference and raw-JTL summarizer. The official skill validator returned `Skill is valid!`; its analyzer reproduced the real Load smoke values. The Skill enforces source inspection, correlation/assertion review, non-GUI execution, resource evidence and deterministic metrics before AI interpretation.
 
-The [15:05 YouTube demo](https://youtu.be/hz-N_-Y7VZY) was inspected in Chrome on 2026-08-18. Sampled frames show the tool and Task Manager in the same frame, real JMeter output, the Agent Skill, audit/bug evidence and the continuous-testing model. **Submission blocker:** YouTube currently labels the video `Private`; the student must change it to `Unlisted`, verify access while signed out and confirm that the recording uses their own Vietnamese narration.
+The [15:05 YouTube demo](https://youtu.be/hz-N_-Y7VZY) was visually inspected on 2026-08-18. Sampled frames show the tool and Task Manager in the same frame, real JMeter output, the Agent Skill, audit/bug evidence and the continuous-testing model. The student confirmed that it uses their own Vietnamese narration and is Unlisted. An unauthenticated YouTube oEmbed request returned the video's title, channel, thumbnail and embed URL, confirming external metadata access.
 
 ## 12. Limitations and conclusion
 

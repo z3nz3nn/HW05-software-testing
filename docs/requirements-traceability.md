@@ -20,11 +20,11 @@
 | Optimization feasibility critique | Source-backed classification | Completed in Main Report section 9 |
 | Continuous performance model + flowchart | Main report section and CI proposal | Completed in `docs/continuous-performance-testing.md` |
 | Agent Skill | `skills/eshop-performance-testing` | Completed and official validator passed |
-| Demo video ≥6 minutes, same-frame tool/resource monitor, Vietnamese narration | <https://youtu.be/hz-N_-Y7VZY> | 15:05 and sampled visual requirements verified; still Private, must become Unlisted; student narration confirmation pending |
+| Demo video ≥6 minutes, same-frame tool/resource monitor, Vietnamese narration | <https://youtu.be/hz-N_-Y7VZY> | Completed: 15:05, sampled visuals verified, student confirmed own Vietnamese narration and Unlisted visibility; unauthenticated oEmbed metadata access succeeded |
 | AI Critique 200–300 words | `AI-Critique.md` | Completed: 279 words |
 | AI Audit Report | `AI-Audit-Report.md` | Completed through G-05 with timestamps, prompts, outputs, screenshots and human decisions |
 | Hardware screenshot/spec table | Hardware text evidence, report table and `evidence/screenshots/manual/01-dxdiag-system.png` | Completed; GUI screenshot shows hostname `ASUS`, OS, CPU and RAM |
 | Genuine GitHub Issues | Duplicate email bug candidate, only after live reproduction | Issue #1 created with HTTP 200 IDs 3/4; repository and Issue are Public and unauthenticated HTTP 200 was verified |
 | Git commit per procedure step | Logical commits and `git-commit-log.txt` | Completed through final content/evidence commit; log exported |
 | Main report Markdown + PDF | `Main-Report.md`, `reports/pdf/Main-Report.pdf` | Completed; all three PDFs rendered and visually inspected |
-| README self-assessment and summary | `README.md` | Completed with real metrics and video link; video visibility/narration confirmation remain |
+| README self-assessment and summary | `README.md` | Completed with real metrics, self-assessed grade `090` and verified video link |

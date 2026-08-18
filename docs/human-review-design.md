@@ -30,8 +30,8 @@
 
 ## Human sign-off checklist
 
-- [ ] Confirm the workload resembles expected local-user behavior.
-- [ ] Confirm test emails and user cleanup do not affect shared/production data (tests run only on localhost).
-- [ ] Inspect at least one sampler response in GUI before full CLI execution.
-- [ ] Verify timestamps, filenames, and student identity.
-- [ ] Compare all reported metrics against the committed raw JTL.
+- [x] Confirm the paced account-lifecycle workload is appropriate for the selected localhost user-management workflow.
+- [x] Confirm UUID test emails and correlated cleanup do not affect shared/production data; every controlled run targets only localhost and restarts the isolated SUT.
+- [x] Inspect smoke sampler responses and exact assertions before the full CLI executions; the accepted smoke produced 182 successful iterations of each endpoint.
+- [x] Verify timestamps, filename convention, student identity and MSSV against the committed plans/results.
+- [x] Compare every reported aggregate/window metric against the committed raw JTL and deterministic `analysis/*.json` files.

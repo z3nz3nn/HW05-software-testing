@@ -43,8 +43,8 @@ The suffix protects the accepted result files from overwrite. These are full evi
 - [x] Publish [GitHub Issue #1](https://github.com/z3nz3nn/HW05-software-testing/issues/1) with the committed reproduction screenshot.
 - [x] Change repository visibility from **Private** to **Public** after a tracked-file secret-pattern scan; preserve `evidence/screenshots/13-github-public-repository.jpg`.
 - [x] Record and upload the video. Chrome verified a duration of **15:05** and sampled frames show JMeter/VS Code plus Task Manager in one frame, the Agent Skill, audit/bug evidence and the continuous model.
-- [ ] Student confirms that the recording uses their own audible Vietnamese narration; Chrome exposed no captions/audio transcript for independent verification.
-- [ ] Change YouTube visibility from **Private** to **Unlisted** and test the link while signed out/incognito.
+- [x] Student confirmed on 2026-08-18 that the recording uses their own audible Vietnamese narration.
+- [x] Student changed YouTube visibility to **Unlisted**; an unauthenticated YouTube oEmbed request returned the video's metadata and embed URL.
 - [x] Insert `https://youtu.be/hz-N_-Y7VZY` in `README.md` and `Main-Report.md`; the video-link placeholder is removed.
 
 ## Final package
@@ -54,6 +54,6 @@ The suffix protects the accepted result files from overwrite. These are full evi
 - [x] Export `git-commit-log.txt` after the manual screenshots/video-link update (`b191a89`).
 - [x] Confirm unauthenticated HTTP 200 for both the repository and Issue #1.
 - [x] Use self-assessed grade `090`, matching the six published rubric rows (which sum to 90 even though the table prints Total 100).
-- [ ] Create `23127373_HW05_AI_Performance_<grade>.zip` only after the four screenshots, sign-off and working YouTube link are committed.
-- [ ] Inspect the ZIP for the required Markdown/PDF/JMX/JTL/evidence/Skill/Git-log artifacts and confirm that ignored local runtimes/secrets are absent.
+- [x] Create `23127373_HW05_AI_Performance_090.zip` from the final tracked repository after the screenshots and working video link are committed.
+- [x] Inspect the ZIP for the required Markdown/PDF/JMX/JTL/evidence/Skill/Git-log artifacts and confirm that ignored local runtimes/secrets are absent.
 - [ ] Submit the ZIP to Moodle before the deadline shown there.
