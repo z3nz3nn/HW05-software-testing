@@ -54,6 +54,6 @@ The suffix protects the accepted result files from overwrite. These are full evi
 - [x] Export `git-commit-log.txt` after the final Unlisted-video evidence update (`ff544b3`).
 - [x] Confirm unauthenticated HTTP 200 for both the repository and Issue #1.
 - [x] Use self-assessed grade `090`, matching the six published rubric rows (which sum to 90 even though the table prints Total 100).
-- [x] Create `23127373_HW05_AI_Performance_090.zip` from the final tracked repository after the screenshots and working video link are committed.
-- [x] Inspect the ZIP for the required Markdown/PDF/JMX/JTL/evidence/Skill/Git-log artifacts and confirm that ignored local runtimes/secrets are absent.
+- [ ] Create `23127373_HW05_AI_Performance_090.zip` manually from a cleaned submission copy; exclude the local runtimes, caches and evidence reruns listed below.
+- [ ] Inspect the finished ZIP for the required Markdown/PDF/JMX/JTL/evidence/Skill/Git-log artifacts and confirm that excluded local runtimes/secrets are absent.
 - [ ] Submit the ZIP to Moodle before the deadline shown there.
